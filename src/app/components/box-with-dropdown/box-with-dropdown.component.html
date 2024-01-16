@@ -1,0 +1,11 @@
+<div class="options-box">
+  <h3>{{ header }}</h3>
+  <div *ngFor="let item of items">
+    <label for="{{ item }}">{{ item }}</label>
+    <select id="{{ header }}" (change)="onChange($event)">
+      <option *ngFor="let number of numbers">{{ number }}</option>
+    </select>
+
+    <p class="tooltipText" *ngIf="tooltipText">{{ tooltipText }}</p>
+  </div>
+</div>

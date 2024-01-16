@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "TantoFont";
+  src: url("../src/assets/Jua-Regular.ttf") format("truetype");
+  font-weight: bold;
+}
+
+* {
+  font-family: "TantoFont";
+}

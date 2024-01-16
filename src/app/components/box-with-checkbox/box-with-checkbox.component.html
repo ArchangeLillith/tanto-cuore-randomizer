@@ -1,0 +1,8 @@
+<div class="options-box">
+  <h3>{{ header }}</h3>
+  <div *ngFor="let item of items">
+    <input type="checkbox" id="{{ item }}" (change)="onChange($event)" />
+    <label for="{{ item }}">{{ item }}</label>
+    <p class="tooltipText" *ngIf="tooltipText">{{ tooltipText }}</p>
+  </div>
+</div>

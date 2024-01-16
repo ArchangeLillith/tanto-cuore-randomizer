@@ -1,0 +1,12 @@
+.options-box {
+  display: flex;
+  align-items: normal;
+  justify-content: left;
+  padding: 1% 4%;
+  border: 3px solid pink;
+  flex-direction: column;
+}
+
+h3 {
+  margin: 0;
+}

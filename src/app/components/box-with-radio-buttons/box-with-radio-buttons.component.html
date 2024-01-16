@@ -1,0 +1,12 @@
+<div class="options-box">
+  <h3>{{ header }}</h3>
+  <div *ngFor="let select of selection">
+    <input
+      type="radio"
+      id="{{ select }}"
+      name="{{ idProperty }}"
+      value="{{ select }}"
+    /><label for="{{ select }}">{{ select }}</label>
+  </div>
+  <p class="tooltipText" *ngIf="tooltipText">{{ tooltipText }}</p>
+</div>
