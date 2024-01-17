@@ -2,73 +2,98 @@
 
 <!-- box of sets -->
 <app-box-with-checkbox
-  (eventToggle)="eventToggle($event)"
+  (change)="eventToggle($event)"
   [items]="setArray"
   header="Please choose the sets you'd like to include!"
 ></app-box-with-checkbox>
 
-<!-- Base Game Exclusive-->
-<app-box-with-dropdown
-  [items]="sistersString"
-  header="Keep the sisters together!"
-  idProperty="sisterInclusion"
-  tooltipText="NOTE: Includes Compy sisters if 'Promo' set is chosen"
-></app-box-with-dropdown>
+<!-- Box for set-exclusive options -->
+<div class="set-exclusive-container">
+  <!-- Base Game Exclusive-->
+  <app-box-with-dropdown
+    [items]="sistersString"
+    header="Keep the sisters together!"
+    idProperty="sisterInclusion"
+    tooltipText="NOTE: Includes Compy sisters if 'Promo' set is chosen"
+  ></app-box-with-dropdown>
 
-<!-- Base and EtH -->
-<app-box-with-checkbox
-  (eventToggle)="filterChange($event)"
-  [items]="privateMaidString"
-  header="Private Maids"
-  idProperty="includePrivateMaids"
-  tooltipText="Select this option if using Tanto Cuore and/or Expanding the House without Private Maids"
-></app-box-with-checkbox>
+  <!-- Base and EtH -->
+  <app-box-with-checkbox
+    (eventToggle)="filterChange($event)"
+    [items]="privateMaidString"
+    header="Private Maids"
+    idProperty="includePrivateMaids"
+    tooltipText="Select this option if using Tanto Cuore and/or Expanding the House without Private Maids"
+  ></app-box-with-checkbox>
 
-<!-- Base, Oktober, Winter -->
-<app-box-with-checkbox
-  (eventToggle)="filterChange($event)"
-  [items]="eventString"
-  header="Events"
-  idProperty="includeEvents"
-  tooltipText="Select this option if using Tanto Cuore, Oktoberfest, and/or Winter Romance without Event cards
+  <!-- Base, Oktober, Winter -->
+  <app-box-with-checkbox
+    (eventToggle)="filterChange($event)"
+    [items]="eventString"
+    header="Events"
+    idProperty="includeEvents"
+    tooltipText="Select this option if using Tanto Cuore, Oktoberfest, and/or Winter Romance without Event cards
   NOTE: Winter Romance 'Drama' cards are treated as Event cards."
-></app-box-with-checkbox>
+  ></app-box-with-checkbox>
 
-<!-- EtH, Oktober, Winter -->
-<app-box-with-checkbox
-  (eventToggle)="filterChange($event)"
-  [items]="buildingString"
-  header="Buildings"
-  idProperty="includeBuildings"
-  tooltipText="Select this option if using Expanding the House, Oktoberfest, and/or Winter Romance without Building cards"
-></app-box-with-checkbox>
+  <!-- EtH, Oktober, Winter -->
+  <app-box-with-checkbox
+    (eventToggle)="filterChange($event)"
+    [items]="buildingString"
+    header="Buildings"
+    idProperty="includeBuildings"
+    tooltipText="Select this option if using Expanding the House, Oktoberfest, and/or Winter Romance without Building cards"
+  ></app-box-with-checkbox>
 
-<!-- Romantic Vacation Exclusive -->
-<app-box-with-radio-buttons
-  header="Reminescenses"
-  [selection]="reminecenseOptions"
-  idProperty="forceBeer"
-  tooltipText="Select this option if using Romantic Vacation without Reminiscence cards"
-></app-box-with-radio-buttons>
+  <!-- Romantic Vacation Exclusive -->
+  <app-box-with-radio-buttons
+    header="Reminescenses"
+    [selection]="reminecenseOptions"
+    idProperty="forceBeer"
+    tooltipText="Select this option if using Romantic Vacation without Reminiscence cards"
+  ></app-box-with-radio-buttons>
 
-<!-- oktoberfest exclusive -->
-<app-box-with-radio-buttons
-  header="Beer"
-  [selection]="beerOptions"
-  idProperty="includeReminecsenses"
-  tooltipText="Select this option if using Oktoberfest without the beer mechanic (Beer cards and the Beer Fest building)"
-></app-box-with-radio-buttons>
+  <!-- Oktoberfest exclusive -->
+  <app-box-with-radio-buttons
+    header="Beer"
+    [selection]="beerOptions"
+    idProperty="includeReminecsenses"
+    tooltipText="Select this option if using Oktoberfest without the beer mechanic (Beer cards and the Beer Fest building)"
+  ></app-box-with-radio-buttons>
 
-<!-- Winter Romance exclusive -->
-<app-box-with-checkbox
-  (eventToggle)="filterChange($event)"
-  [items]="buildingString"
-  header="Couples"
-  idProperty="includeCouples"
-  tooltipText="(Friends, Trial, Drama cards, Meetup Spot cards, Chapel, and Social Bonus)"
-></app-box-with-checkbox>
+  <!-- Winter Romance exclusive -->
+  <app-box-with-checkbox
+    (eventToggle)="filterChange($event)"
+    [items]="buildingString"
+    header="Couples"
+    idProperty="includeCouples"
+    tooltipText="(Friends, Trial, Drama cards, Meetup Spot cards, Chapel, and Social Bonus)"
+  ></app-box-with-checkbox>
+</div>
 
-<!-- box of slants 
+<!-- Box for slants -->
+<div class="slant-container">
+  <div class="options-box">
+    <h3>Would you like to slant the town towards any of these options?</h3>
+    <div class="inner-content-container">
+      <app-box-with-mutex-checkboxes
+        *ngFor="let set of sets"
+        [topOptionText]="set.topOptionText"
+        [middleOptionText]="set.middleOptionText"
+        [topOptionId]="set.topOptionId"
+        [middleOptionId]="set.middleOptionId"
+        [bottomOptionId]="set.bottomOptionId"
+        header="Would you like the town to slant towards the following?"
+        (change)="filterChange($event)"
+      ></app-box-with-mutex-checkboxes>
+    </div>
+    <p class="tooltipText">
+      Some options will be greyed out if the options are mutually exclusive, or
+      if the resulting town will not contain 10 or more cards
+    </p>
+  </div>
+</div>
 
+<!-- 
 attack card box 
-box tohold cards to be banned -->
+box to hold cards to be banned -->

@@ -10,8 +10,15 @@ export type FilterObject = {
   includeCouples: boolean;
   attackCards: string; //Other options to include "no attack" and "only attack"
   highVictoryPoints: boolean;
-  highLove: boolean;
+  lowVictoryPoints: boolean;
+  highLoveCost: boolean;
+  lowLoveCost: boolean;
+  highLoveGive: boolean;
+  lowLoveGive: boolean;
+  highServings: boolean;
+  lowServings: boolean;
   highDraw: boolean;
+  lowDraw: boolean;
   highEmployEffects: boolean;
-  highAmountOfLowCost: boolean;
+  lowEmployEffects: boolean;
 };

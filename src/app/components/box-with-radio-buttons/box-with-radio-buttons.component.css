@@ -7,6 +7,10 @@
   flex-direction: column;
 }
 
+.options-box > div {
+  margin-left: 25px;
+}
+
 h3 {
   margin: 0;
 }

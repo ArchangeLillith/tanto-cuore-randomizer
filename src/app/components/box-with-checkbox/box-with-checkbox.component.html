@@ -3,6 +3,8 @@
   <div *ngFor="let item of items">
     <input type="checkbox" id="{{ item }}" (change)="onChange($event)" />
     <label for="{{ item }}">{{ item }}</label>
-    <p class="tooltipText" *ngIf="tooltipText">{{ tooltipText }}</p>
+    <p class="tooltipText" *ngIf="tooltipText">
+      {{ tooltipText }}
+    </p>
   </div>
 </div>

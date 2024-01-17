@@ -7,13 +7,14 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
 })
 export class BoxWithCheckboxComponent {
   constructor() {}
-  @Output() eventToggle = new EventEmitter();
+  @Output() change = new EventEmitter();
   @Input() items: string[];
   @Input() tooltipText: string;
   @Input() header: string;
+  @Input() slantId: string[];
   @Input() idProperty: string;
 
   onChange(event: any) {
-    this.eventToggle.emit(event);
+    this.change.emit(event);
   }
 }

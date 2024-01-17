@@ -1,0 +1,167 @@
+<label class="con1">
+  <span #topInputText>{{ topOptionText }}</span>
+  <input
+    type="radio"
+    name="{{ topOptionText }}"
+    id="{{ topOptionId }}"
+    (change)="onChange($event)"
+    #topInput
+  />
+  <span class="checkmark"></span>
+</label>
+<label class="con1"
+  ><span #middleInputText>{{ middleOptionText }}</span>
+  <input
+    type="radio"
+    name="{{ topOptionText }}"
+    id="{{ middleOptionId }}"
+    (change)="onChange($event)"
+    #middleInput
+  />
+  <span class="checkmark"></span>
+</label>
+<label class="con1"
+  ><span #bottomInputText>No Preference</span>
+  <input
+    type="radio"
+    name="{{ topOptionText }}"
+    id="{{ bottomOptionId }}"
+    (change)="onChange($event)"
+    checked
+    #bottomInput
+  />
+  <span class="checkmark"></span>
+</label>
+
+<!-- <div>
+      <label class="con2">
+        <span>High Love Cost</span>
+        <input
+          type="radio"
+          name="loveCost"
+          id="highLoveCost"
+          (change)="onChange($event)"
+        />
+        <span class="checkmark"></span>
+      </label>
+      <label class="con2"
+        ><span>Low Love Cost</span>
+        <input
+          type="radio"
+          name="loveCost"
+          id="lowLoveCost"
+          (change)="onChange($event)"
+        />
+        <span class="checkmark"></span>
+      </label>
+      <label class="con2"
+        ><span>No Preference</span>
+        <input
+          type="radio"
+          name="loveCost"
+          id="lowVictoryPoints"
+          (change)="onChange($event)"
+          checked
+        />
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div>
+      <label class="con3">
+        <span>High Love Give</span>
+        <input
+          type="radio"
+          name="loveGive"
+          id="highLoveGive"
+          (change)="onChange($event)"
+        />
+        <span class="checkmark"></span>
+      </label>
+      <label class="con3"
+        ><span>Low Love Give</span>
+        <input
+          type="radio"
+          name="loveGive"
+          id="lowLoveGive"
+          (change)="onChange($event)"
+        />
+        <span class="checkmark"></span>
+      </label>
+      <label class="con3"
+        ><span>No Preference</span>
+        <input
+          type="radio"
+          name="loveGive"
+          id="lowVictoryPoints"
+          (change)="onChange($event)"
+          checked
+        />
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div>
+      <label class="con4">
+        <span>High Draw</span>
+        <input
+          type="radio"
+          name="drawPower"
+          id="highDraw"
+          (change)="onChange($event)"
+        />
+        <span class="checkmark"></span>
+      </label>
+      <label class="con4"
+        ><span>Low Draw</span>
+        <input
+          type="radio"
+          name="drawPower"
+          id="lowDraw"
+          (change)="onChange($event)"
+        />
+        <span class="checkmark"></span>
+      </label>
+      <label class="con4"
+        ><span>No Preference</span>
+        <input
+          type="radio"
+          name="drawPower"
+          id="lowVictoryPoints"
+          (change)="onChange($event)"
+          checked
+        />
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div>
+      <label class="con5">
+        <span>High Draw</span>
+        <input
+          type="radio"
+          name="employEffects"
+          id="highEmployEffects"
+          (change)="onChange($event)"
+        />
+        <span class="checkmark"></span>
+      </label>
+      <label class="con5"
+        ><span>Low Draw</span>
+        <input
+          type="radio"
+          name="employEffects"
+          id="lowEmployEffects"
+          (change)="onChange($event)"
+        />
+        <span class="checkmark"></span>
+      </label>
+      <label class="con5"
+        ><span>No Preference</span>
+        <input
+          type="radio"
+          name="employEffects"
+          id="lowVictoryPoints"
+          (change)="onChange($event)"
+          checked
+        />
+        <span class="checkmark"></span>
+      </label>
+    </div> -->

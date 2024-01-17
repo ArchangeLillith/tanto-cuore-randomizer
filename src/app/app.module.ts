@@ -7,6 +7,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { BoxWithCheckboxComponent } from './components/box-with-checkbox/box-with-checkbox.component';
 import { BoxWithRadioButtonsComponent } from './components/box-with-radio-buttons/box-with-radio-buttons.component';
 import { BoxWithDropdownComponent } from './components/box-with-dropdown/box-with-dropdown.component';
+import { BoxWithMutexCheckboxesComponent } from './components/box-with-mutex-checkboxes/box-with-mutex-checkboxes.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { BoxWithDropdownComponent } from './components/box-with-dropdown/box-wit
     BoxWithCheckboxComponent,
     BoxWithRadioButtonsComponent,
     BoxWithDropdownComponent,
+    BoxWithMutexCheckboxesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
