@@ -14,7 +14,7 @@ import {
 })
 export class BoxWithMutexCheckboxesComponent {
   constructor() {}
-  @Output() change = new EventEmitter();
+  @Output() changeSelection = new EventEmitter();
   @Input() tooltipText: string;
   @Input() header: string;
   @Input() topOptionText: string;
@@ -45,6 +45,6 @@ export class BoxWithMutexCheckboxesComponent {
         this.middleInputText.nativeElement.classList.remove('greyed-out-text');
         break;
     }
-    this.change.emit(event);
+    this.changeSelection.emit(event);
   }
 }

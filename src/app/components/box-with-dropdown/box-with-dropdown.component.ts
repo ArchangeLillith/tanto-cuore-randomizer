@@ -7,7 +7,7 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
 })
 export class BoxWithDropdownComponent {
   constructor() {}
-  @Output() eventToggle = new EventEmitter();
+  @Output() dropdownChange = new EventEmitter();
   @Input() items: string[];
   @Input() tooltipText: string;
   @Input() header: string;
@@ -15,6 +15,6 @@ export class BoxWithDropdownComponent {
   @Input() numbers: number[] = [...Array(3).keys()];
 
   onChange(event: any) {
-    this.eventToggle.emit(event);
+    this.dropdownChange.emit(event);
   }
 }

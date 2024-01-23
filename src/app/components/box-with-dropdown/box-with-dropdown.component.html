@@ -1,5 +1,7 @@
 <div class="options-box">
-  <h3>{{ header }}</h3>
+  <div class="header-wrapper">
+    <h3>{{ header }}</h3>
+  </div>
   <div *ngFor="let item of items">
     <label for="{{ item }}">{{ item }}</label>
     <select id="{{ header }}" (change)="onChange($event)">

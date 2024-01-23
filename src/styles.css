@@ -9,3 +9,55 @@
 * {
   font-family: "TantoFont";
 }
+
+.web-container,
+.set-exclusive-container {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.web-container {
+  background-image: url("./assets/hearts.png");
+  background-size: auto;
+}
+
+.options-box {
+  display: flex;
+  align-items: normal;
+  justify-content: left;
+  padding: 1% 4%;
+  border: 3px solid rgb(250, 146, 163);
+  background-color: pink;
+  flex-direction: column;
+  width: 550px;
+  margin: 10px 0px 10px 0px;
+}
+
+.options-box > app-box-with-mutex-checkboxes {
+  margin-left: 25px;
+}
+
+h3 {
+  margin: 0;
+}
+
+.header-wrapper {
+  background: rgb(250, 146, 163);
+  border-radius: 10px;
+  height: fit-content;
+  width: fit-content;
+  padding: 1%;
+  align-self: center;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+
+.inner-content-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+}

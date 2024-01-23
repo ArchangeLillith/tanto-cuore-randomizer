@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterObject } from './Utils/types';
+import { FilterObject, Card } from './Utils/types';
+import { CardFilterService } from './services/card-filter.service';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,7 @@ import { FilterObject } from './Utils/types';
 })
 export class AppComponent {
   public filterObject: FilterObject;
-
+  constructor(private CardFilterService: CardFilterService) {}
   ngOnInit() {
     this.filterObject = {
       setList: [],
@@ -38,6 +40,32 @@ export class AppComponent {
 
   title = 'tanto-cuore-randomizer';
 
+  cardsPerSet = [
+    {
+      name: 'Romina Vautrin',
+      cardTitle: 'Job-Skipping Maid',
+      pictureUrl: 'none',
+      promo: false,
+      employEffect: false,
+      chiefMaid: false,
+      beerMaid: false,
+      eventRequired: false,
+      couplesRequired: false,
+      reminescenceRequired: false,
+      chamberMaid: false,
+      crescentSister: false,
+      stackingVP: false,
+      victoryPoints: 0,
+      negativeVP: false,
+      purchasePrice: 4,
+      cardDraw: 2,
+      employs: 0,
+      servings: 0,
+      love: 2,
+      cardID: 13,
+      set: 'romantic_vacation',
+    },
+  ];
   setArray: string[] = [
     'Base Set',
     'Expanding the House',
@@ -150,35 +178,59 @@ export class AppComponent {
     console.log(this.filterObject.setList);
   }
 
-  filterChange(event: any) {
+  dropdownChange(event: any) {
+    let newFilterValue = event.target.value;
+    this.filterObject.sisterInclusion = newFilterValue;
+  }
+
+  filterChange(event: any, type: string) {
     let propertyToChange: any = event.target.id;
     console.log(propertyToChange);
-    let regex = '^noPreference';
-    if (propertyToChange === regex) {
+    let preferenceRegex = new RegExp('^noPreference');
+    let preferenceBoolean = preferenceRegex.test(propertyToChange);
+    if (preferenceBoolean === true) {
       this.noPreference(propertyToChange);
       return;
-    }
-    if (
-      typeof this.filterObject[propertyToChange as keyof FilterObject] ===
-      'boolean'
-    ) {
-      (this.filterObject[propertyToChange as keyof FilterObject] as any) =
-        !this.filterObject[propertyToChange as keyof FilterObject];
-      console.log(
-        this.filterObject[propertyToChange as keyof FilterObject] as any
-      );
     } else {
-      //todo pull out after app runs correctly
-      alert(
-        'trying to toggle a string/number property, should only be assigned to a boolean'
-      );
+      if (
+        typeof this.filterObject[propertyToChange as keyof FilterObject] ===
+        'boolean'
+      ) {
+        (this.filterObject[propertyToChange as keyof FilterObject] as any) =
+          !this.filterObject[propertyToChange as keyof FilterObject];
+        console.log(
+          this.filterObject[propertyToChange as keyof FilterObject] as any
+        );
+        console.log(this.CardFilterService.filterCheck(this.filterObject));
+
+        if (type === 'slantType' && propertyToChange.includes('high')) {
+          let mutexProperty = propertyToChange.replace(/high/gi, 'low');
+          (this.filterObject[mutexProperty as keyof FilterObject] as any) =
+            false;
+          console.log(this.CardFilterService.filterCheck(this.filterObject));
+        }
+        if (type === 'slantType' && propertyToChange.includes('low')) {
+          let mutexProperty = propertyToChange.replace(/low/gi, 'high');
+          (this.filterObject[mutexProperty as keyof FilterObject] as any) =
+            false;
+          console.log(this.CardFilterService.filterCheck(this.filterObject));
+        }
+      } else {
+        //todo pull out after app runs correctly
+        alert(
+          'trying to toggle a string/number property, should only be assigned to a boolean'
+        );
+      }
     }
   }
+
   noPreference(filterId: string) {
     switch (filterId) {
       case 'noPreferenceVictoryPoints':
         this.filterObject.highVictoryPoints = false;
         this.filterObject.lowVictoryPoints = false;
+        console.log(this.CardFilterService.filterCheck(this.filterObject));
+
         break;
       case 'noPreferenceLoveCost':
         this.filterObject.highLoveCost = false;
@@ -200,6 +252,29 @@ export class AppComponent {
         this.filterObject.highEmployEffects = false;
         this.filterObject.lowEmployEffects = false;
         break;
+    }
+  }
+
+  btnClick() {
+    console.log(`Btn click`);
+    console.dir(this.filterObject);
+    for (let i = 0; i < this.filterObject.setList.length; i++) {
+      this.CardFilterService.returnSetCards(
+        this.filterObject.setList[i]
+      ).subscribe((cardReturn) => {
+        if (this.cardsPerSet.length === 0) {
+          this.cardsPerSet = this.cardsPerSet.concat(cardReturn);
+        } else {
+          this.cardsPerSet = [];
+          this.cardsPerSet.concat(cardReturn);
+        }
+
+        let filteredList = this.CardFilterService.filterCards(
+          this.cardsPerSet,
+          this.filterObject
+        );
+        console.log(filteredList);
+      });
     }
   }
 }

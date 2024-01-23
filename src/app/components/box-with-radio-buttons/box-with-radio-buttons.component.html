@@ -1,7 +1,10 @@
 <div class="options-box">
-  <h3>{{ header }}</h3>
-  <div *ngFor="let select of selection">
+  <div class="header-wrapper">
+    <h3>{{ header }}</h3>
+  </div>
+  <div *ngFor="let select of selection; let first = first">
     <input
+      [attr.checked]="first ? 'checked' : null"
       type="radio"
       id="{{ select }}"
       name="{{ idProperty }}"

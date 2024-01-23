@@ -7,7 +7,7 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
 })
 export class BoxWithCheckboxComponent {
   constructor() {}
-  @Output() change = new EventEmitter();
+  @Output() changeSet = new EventEmitter();
   @Input() items: string[];
   @Input() tooltipText: string;
   @Input() header: string;
@@ -15,6 +15,6 @@ export class BoxWithCheckboxComponent {
   @Input() idProperty: string;
 
   onChange(event: any) {
-    this.change.emit(event);
+    this.changeSet.emit(event);
   }
 }
