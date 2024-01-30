@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterObject, Card } from './Utils/types';
 import { CardFilterService } from './services/card-filter.service';
-import { filter } from 'rxjs';
+import createTheTown from './Utils/createTheTown';
 
 @Component({
   selector: 'app-root',
@@ -37,14 +37,14 @@ export class AppComponent {
       lowEmployEffects: false,
     };
   }
-
+  cardsPerSet: Card[] = [];
+  cardsAfterFilter: Card[] = [];
   title = 'tanto-cuore-randomizer';
-
-  cardsPerSet = [
+  finishedTown: Card[] = [
     {
-      name: 'Romina Vautrin',
-      cardTitle: 'Job-Skipping Maid',
-      pictureUrl: 'none',
+      name: 'Moine de Lefevre',
+      cardTitle: 'Employing Maid',
+      pictureUrl: null,
       promo: false,
       employEffect: false,
       chiefMaid: false,
@@ -59,13 +59,377 @@ export class AppComponent {
       negativeVP: false,
       purchasePrice: 4,
       cardDraw: 2,
+      employs: 2,
+      servings: 0,
+      love: 0,
+      cardID: 11,
+      set: 'base_set',
+    },
+    {
+      name: 'Sainsbury Lockwood',
+      cardTitle: 'Laundry Maid',
+      pictureUrl: './assets/images/SainsburyLockwood.webp',
+      promo: false,
+      employEffect: false,
+      chiefMaid: false,
+      beerMaid: false,
+      eventRequired: false,
+      couplesRequired: false,
+      reminescenceRequired: false,
+      chamberMaid: false,
+      crescentSister: false,
+      stackingVP: false,
+      victoryPoints: 0,
+      negativeVP: false,
+      purchasePrice: 5,
+      cardDraw: 0,
+      employs: 0,
+      servings: 0,
+      love: 0,
+      cardID: 5,
+      set: 'base_set',
+    },
+    {
+      name: 'Ophelia Grail',
+      cardTitle: 'All-Purpose Maid',
+      pictureUrl: null,
+      promo: false,
+      employEffect: false,
+      chiefMaid: false,
+      beerMaid: false,
+      eventRequired: false,
+      couplesRequired: false,
+      reminescenceRequired: false,
+      chamberMaid: false,
+      crescentSister: false,
+      stackingVP: false,
+      victoryPoints: 2,
+      negativeVP: true,
+      purchasePrice: 6,
+      cardDraw: 1,
+      employs: 1,
+      servings: 1,
+      love: 1,
+      cardID: 4,
+      set: 'base_set',
+    },
+    {
+      name: 'Genevieve Daubigny',
+      cardTitle: 'Cooking Maid',
+      pictureUrl: null,
+      promo: false,
+      employEffect: false,
+      chiefMaid: false,
+      beerMaid: false,
+      eventRequired: false,
+      couplesRequired: false,
+      reminescenceRequired: false,
+      chamberMaid: false,
+      crescentSister: false,
+      stackingVP: false,
+      victoryPoints: 0,
+      negativeVP: false,
+      purchasePrice: 4,
+      cardDraw: 1,
+      employs: 0,
+      servings: 1,
+      love: 1,
+      cardID: 10,
+      set: 'base_set',
+    },
+    {
+      name: 'Claire Saint-Juste',
+      cardTitle: 'White Maid',
+      pictureUrl: null,
+      promo: false,
+      employEffect: false,
+      chiefMaid: false,
+      beerMaid: false,
+      eventRequired: true,
+      couplesRequired: false,
+      reminescenceRequired: false,
+      chamberMaid: false,
+      crescentSister: false,
+      stackingVP: false,
+      victoryPoints: 0,
+      negativeVP: false,
+      purchasePrice: 3,
+      cardDraw: 0,
+      employs: 0,
+      servings: 1,
+      love: 0,
+      cardID: 14,
+      set: 'base_set',
+    },
+    {
+      name: 'Tenalys Trent',
+      cardTitle: 'Nap Maid',
+      pictureUrl: null,
+      promo: false,
+      employEffect: false,
+      chiefMaid: false,
+      beerMaid: false,
+      eventRequired: false,
+      couplesRequired: false,
+      reminescenceRequired: false,
+      chamberMaid: false,
+      crescentSister: false,
+      stackingVP: false,
+      victoryPoints: 0,
+      negativeVP: false,
+      purchasePrice: 5,
+      cardDraw: 0,
+      employs: 1,
+      servings: 0,
+      love: 3,
+      cardID: 6,
+      set: 'base_set',
+    },
+    {
+      name: 'Natsumi Fujikawa',
+      cardTitle: 'Cleaning Maid',
+      pictureUrl: null,
+      promo: false,
+      employEffect: false,
+      chiefMaid: false,
+      beerMaid: false,
+      eventRequired: false,
+      couplesRequired: false,
+      reminescenceRequired: false,
+      chamberMaid: false,
+      crescentSister: false,
+      stackingVP: false,
+      victoryPoints: 0,
+      negativeVP: false,
+      purchasePrice: 5,
+      cardDraw: 1,
+      employs: 0,
+      servings: 2,
+      love: 0,
+      cardID: 7,
+      set: 'base_set',
+    },
+    {
+      name: 'Rouge Crescent',
+      cardTitle: 'Chambermaid',
+      pictureUrl: null,
+      promo: false,
+      employEffect: false,
+      chiefMaid: false,
+      beerMaid: false,
+      eventRequired: false,
+      couplesRequired: false,
+      reminescenceRequired: false,
+      chamberMaid: true,
+      crescentSister: true,
+      stackingVP: true,
+      victoryPoints: 1,
+      negativeVP: false,
+      purchasePrice: 2,
+      cardDraw: 0,
+      employs: 0,
+      servings: 0,
+      love: 1,
+      cardID: 18,
+      set: 'base_set',
+    },
+    {
+      name: 'Safran Virginie',
+      cardTitle: 'Chambermaid',
+      pictureUrl: null,
+      promo: false,
+      employEffect: false,
+      chiefMaid: false,
+      beerMaid: false,
+      eventRequired: false,
+      couplesRequired: false,
+      reminescenceRequired: false,
+      chamberMaid: true,
+      crescentSister: false,
+      stackingVP: true,
+      victoryPoints: 1,
+      negativeVP: false,
+      purchasePrice: 3,
+      cardDraw: 0,
       employs: 0,
       servings: 0,
       love: 2,
-      cardID: 13,
+      cardID: 15,
+      set: 'expanding_the_house',
+    },
+    {
+      name: 'Nena Wilder',
+      cardTitle: 'Teasing Maid',
+      pictureUrl: null,
+      promo: false,
+      employEffect: false,
+      chiefMaid: false,
+      beerMaid: false,
+      eventRequired: true,
+      couplesRequired: false,
+      reminescenceRequired: false,
+      chamberMaid: false,
+      crescentSister: false,
+      stackingVP: false,
+      victoryPoints: 0,
+      negativeVP: false,
+      purchasePrice: 5,
+      cardDraw: 0,
+      employs: 0,
+      servings: 0,
+      love: 1,
+      cardID: 8,
       set: 'romantic_vacation',
     },
   ];
+
+  eventToggle(event: any) {
+    let setName: string = '';
+    switch (event.target.id) {
+      case 'Base Set':
+        setName = 'base_set';
+        break;
+      case 'Oktoberfest':
+        setName = 'oktoberfest';
+        break;
+      case 'Promotional':
+        setName = 'promo';
+        break;
+      case 'Romantic Vacation':
+        setName = 'romantic_vacation';
+        break;
+      case 'Winter Romance':
+        setName = 'winter_romance';
+        break;
+      case 'Expanding the House':
+        setName = 'expanding_the_house';
+        break;
+    }
+
+    const setIndex: number = this.filterObject.setList.indexOf(setName);
+    if (setIndex !== -1) {
+      this.filterObject.setList.splice(setIndex, 1);
+      this.cardsPerSet = this.cardsPerSet.filter(function (setName) {
+        setName !== setName;
+      });
+    } else {
+      this.filterObject.setList.push(setName);
+      this.CardFilterService.returnSetCards(setName).subscribe((cardReturn) => {
+        this.cardsPerSet = this.cardsPerSet.concat(cardReturn);
+        this.callFilterCheck();
+      });
+    }
+  }
+
+  dropdownChange(event: any) {
+    let newFilterValue = event.target.value;
+    this.filterObject.sisterInclusion = newFilterValue;
+  }
+
+  filterChange(event: any, type: string) {
+    let propertyToChange: any = event.target.id;
+    let preferenceRegex = new RegExp('^noPreference');
+    let preferenceBoolean = preferenceRegex.test(propertyToChange);
+    if (preferenceBoolean === true) {
+      this.noPreferenceFilterToggle(propertyToChange);
+      return;
+    } else {
+      this.booleanFilterValueToggle(propertyToChange, type);
+    }
+  }
+
+  noPreferenceFilterToggle(filterId: string) {
+    switch (filterId) {
+      case 'noPreferenceVictoryPoints':
+        this.filterObject.highVictoryPoints = false;
+        this.filterObject.lowVictoryPoints = false;
+        this.callFilterCheck();
+        break;
+      case 'noPreferenceLoveCost':
+        this.filterObject.highLoveCost = false;
+        this.filterObject.lowLoveCost = false;
+        this.callFilterCheck();
+        break;
+      case 'noPreferenceLoveGive':
+        this.filterObject.highLoveGive = false;
+        this.filterObject.lowLoveGive = false;
+        this.callFilterCheck();
+        break;
+      case 'noPreferenceServings':
+        this.filterObject.highServings = false;
+        this.filterObject.lowServings = false;
+        this.callFilterCheck();
+        break;
+      case 'noPreferenceDraw':
+        this.filterObject.highDraw = false;
+        this.filterObject.lowDraw = false;
+        this.callFilterCheck();
+        break;
+      case 'noPreferenceEmployEffects':
+        this.filterObject.highEmployEffects = false;
+        this.filterObject.lowEmployEffects = false;
+        this.callFilterCheck();
+        break;
+    }
+  }
+
+  booleanFilterValueToggle(propertyToChange: any, type: string) {
+    if (
+      typeof this.filterObject[propertyToChange as keyof FilterObject] ===
+      'boolean'
+    ) {
+      if (type !== 'slantType') {
+        (this.filterObject[propertyToChange as keyof FilterObject] as any) =
+          !this.filterObject[propertyToChange as keyof FilterObject];
+      }
+
+      if (type === 'slantType' && propertyToChange.includes('high')) {
+        let mutexProperty = propertyToChange.replace(/high/gi, 'low');
+        (this.filterObject[mutexProperty as keyof FilterObject] as any) = false;
+        (this.filterObject[propertyToChange as keyof FilterObject] as any) =
+          true;
+        this.callFilterCheck();
+      }
+
+      if (type === 'slantType' && propertyToChange.includes('low')) {
+        let mutexProperty = propertyToChange.replace(/low/gi, 'high');
+        (this.filterObject[mutexProperty as keyof FilterObject] as any) = false;
+        (this.filterObject[propertyToChange as keyof FilterObject] as any) =
+          true;
+        this.callFilterCheck();
+      }
+    }
+  }
+
+  callFilterCheck() {
+    if (
+      this.CardFilterService.filterCheck(this.cardsPerSet, this.filterObject)
+        .length < 10
+    ) {
+      alert("This town doesn't have 10 cards");
+    } else {
+      this.cardsAfterFilter = this.CardFilterService.filterCheck(
+        this.cardsPerSet,
+        this.filterObject
+      );
+    }
+  }
+
+  btnClick() {
+    const townMaterial = this.CardFilterService.filterCheck(
+      this.cardsPerSet,
+      this.filterObject
+    );
+    console.log(`Cards in Town Material:`, townMaterial);
+    let town = createTheTown(townMaterial);
+    if (town.length !== 10) {
+      alert("Town isn't 10 long");
+    } else {
+      this.finishedTown = town;
+      console.log(`TOWN:`, this.finishedTown);
+    }
+  }
+
   setArray: string[] = [
     'Base Set',
     'Expanding the House',
@@ -144,137 +508,246 @@ export class AppComponent {
       bottomOptionId: 'noPreferenceEmployEffects',
     },
   ];
-
-  eventToggle(event: any) {
-    let setName: string = '';
-    console.log(event.target.id);
-    switch (event.target.id) {
-      case 'Base Set':
-        setName = 'base_set';
-        break;
-      case 'Oktoberfest':
-        setName = 'oktoberfest';
-        break;
-      case 'Promotional':
-        setName = 'promo';
-        break;
-      case 'Romantic Vacation':
-        setName = 'romantic_vacation';
-        break;
-      case 'Winter Romance':
-        setName = 'winter_romance';
-        break;
-      case 'Expanding the House':
-        setName = 'expanding_the_house';
-        break;
-    }
-
-    const setIndex: number = this.filterObject.setList.indexOf(setName);
-    if (setIndex !== -1) {
-      this.filterObject.setList.splice(setIndex, 1);
-    } else {
-      this.filterObject.setList.push(setName);
-    }
-    console.log(this.filterObject.setList);
-  }
-
-  dropdownChange(event: any) {
-    let newFilterValue = event.target.value;
-    this.filterObject.sisterInclusion = newFilterValue;
-  }
-
-  filterChange(event: any, type: string) {
-    let propertyToChange: any = event.target.id;
-    console.log(propertyToChange);
-    let preferenceRegex = new RegExp('^noPreference');
-    let preferenceBoolean = preferenceRegex.test(propertyToChange);
-    if (preferenceBoolean === true) {
-      this.noPreference(propertyToChange);
-      return;
-    } else {
-      if (
-        typeof this.filterObject[propertyToChange as keyof FilterObject] ===
-        'boolean'
-      ) {
-        (this.filterObject[propertyToChange as keyof FilterObject] as any) =
-          !this.filterObject[propertyToChange as keyof FilterObject];
-        console.log(
-          this.filterObject[propertyToChange as keyof FilterObject] as any
-        );
-        console.log(this.CardFilterService.filterCheck(this.filterObject));
-
-        if (type === 'slantType' && propertyToChange.includes('high')) {
-          let mutexProperty = propertyToChange.replace(/high/gi, 'low');
-          (this.filterObject[mutexProperty as keyof FilterObject] as any) =
-            false;
-          console.log(this.CardFilterService.filterCheck(this.filterObject));
-        }
-        if (type === 'slantType' && propertyToChange.includes('low')) {
-          let mutexProperty = propertyToChange.replace(/low/gi, 'high');
-          (this.filterObject[mutexProperty as keyof FilterObject] as any) =
-            false;
-          console.log(this.CardFilterService.filterCheck(this.filterObject));
-        }
-      } else {
-        //todo pull out after app runs correctly
-        alert(
-          'trying to toggle a string/number property, should only be assigned to a boolean'
-        );
-      }
-    }
-  }
-
-  noPreference(filterId: string) {
-    switch (filterId) {
-      case 'noPreferenceVictoryPoints':
-        this.filterObject.highVictoryPoints = false;
-        this.filterObject.lowVictoryPoints = false;
-        console.log(this.CardFilterService.filterCheck(this.filterObject));
-
-        break;
-      case 'noPreferenceLoveCost':
-        this.filterObject.highLoveCost = false;
-        this.filterObject.lowLoveCost = false;
-        break;
-      case 'noPreferenceLoveGive':
-        this.filterObject.highLoveGive = false;
-        this.filterObject.lowLoveGive = false;
-        break;
-      case 'noPreferenceServings':
-        this.filterObject.highServings = false;
-        this.filterObject.lowServings = false;
-        break;
-      case 'noPreferenceDraw':
-        this.filterObject.highDraw = false;
-        this.filterObject.lowDraw = false;
-        break;
-      case 'noPreferenceEmployEffects':
-        this.filterObject.highEmployEffects = false;
-        this.filterObject.lowEmployEffects = false;
-        break;
-    }
-  }
-
-  btnClick() {
-    console.log(`Btn click`);
-    console.dir(this.filterObject);
-    for (let i = 0; i < this.filterObject.setList.length; i++) {
-      this.CardFilterService.returnSetCards(
-        this.filterObject.setList[i]
-      ).subscribe((cardReturn) => {
-        if (this.cardsPerSet.length === 0) {
-          this.cardsPerSet = this.cardsPerSet.concat(cardReturn);
-        } else {
-          this.cardsPerSet = [];
-          this.cardsPerSet.concat(cardReturn);
-        }
-
-        let filteredList = this.CardFilterService.filterCards(
-          this.cardsPerSet,
-          this.filterObject
-        );
-        console.log(filteredList);
-      });
-    }
-  }
 }
+
+//FAKE TOWN
+// {
+//   name: 'Moine de Lefevre',
+//   cardTitle: 'Employing Maid',
+//   pictureUrl: null,
+//   promo: false,
+//   employEffect: false,
+//   chiefMaid: false,
+//   beerMaid: false,
+//   eventRequired: false,
+//   couplesRequired: false,
+//   reminescenceRequired: false,
+//   chamberMaid: false,
+//   crescentSister: false,
+//   stackingVP: false,
+//   victoryPoints: 0,
+//   negativeVP: false,
+//   purchasePrice: 4,
+//   cardDraw: 2,
+//   employs: 2,
+//   servings: 0,
+//   love: 0,
+//   cardID: 11,
+//   set: 'base_set',
+// },
+// {
+//   name: 'Sainsbury Lockwood',
+//   cardTitle: 'Laundry Maid',
+//   pictureUrl: null,
+//   promo: false,
+//   employEffect: false,
+//   chiefMaid: false,
+//   beerMaid: false,
+//   eventRequired: false,
+//   couplesRequired: false,
+//   reminescenceRequired: false,
+//   chamberMaid: false,
+//   crescentSister: false,
+//   stackingVP: false,
+//   victoryPoints: 0,
+//   negativeVP: false,
+//   purchasePrice: 5,
+//   cardDraw: 0,
+//   employs: 0,
+//   servings: 0,
+//   love: 0,
+//   cardID: 5,
+//   set: 'base_set',
+// },
+// {
+//   name: 'Ophelia Grail',
+//   cardTitle: 'All-Purpose Maid',
+//   pictureUrl: null,
+//   promo: false,
+//   employEffect: false,
+//   chiefMaid: false,
+//   beerMaid: false,
+//   eventRequired: false,
+//   couplesRequired: false,
+//   reminescenceRequired: false,
+//   chamberMaid: false,
+//   crescentSister: false,
+//   stackingVP: false,
+//   victoryPoints: 2,
+//   negativeVP: true,
+//   purchasePrice: 6,
+//   cardDraw: 1,
+//   employs: 1,
+//   servings: 1,
+//   love: 1,
+//   cardID: 4,
+//   set: 'base_set',
+// },
+// {
+//   name: 'Genevieve Daubigny',
+//   cardTitle: 'Cooking Maid',
+//   pictureUrl: null,
+//   promo: false,
+//   employEffect: false,
+//   chiefMaid: false,
+//   beerMaid: false,
+//   eventRequired: false,
+//   couplesRequired: false,
+//   reminescenceRequired: false,
+//   chamberMaid: false,
+//   crescentSister: false,
+//   stackingVP: false,
+//   victoryPoints: 0,
+//   negativeVP: false,
+//   purchasePrice: 4,
+//   cardDraw: 1,
+//   employs: 0,
+//   servings: 1,
+//   love: 1,
+//   cardID: 10,
+//   set: 'base_set',
+// },
+// {
+//   name: 'Claire Saint-Juste',
+//   cardTitle: 'White Maid',
+//   pictureUrl: null,
+//   promo: false,
+//   employEffect: false,
+//   chiefMaid: false,
+//   beerMaid: false,
+//   eventRequired: true,
+//   couplesRequired: false,
+//   reminescenceRequired: false,
+//   chamberMaid: false,
+//   crescentSister: false,
+//   stackingVP: false,
+//   victoryPoints: 0,
+//   negativeVP: false,
+//   purchasePrice: 3,
+//   cardDraw: 0,
+//   employs: 0,
+//   servings: 1,
+//   love: 0,
+//   cardID: 14,
+//   set: 'base_set',
+// },
+// {
+//   name: 'Tenalys Trent',
+//   cardTitle: 'Nap Maid',
+//   pictureUrl: null,
+//   promo: false,
+//   employEffect: false,
+//   chiefMaid: false,
+//   beerMaid: false,
+//   eventRequired: false,
+//   couplesRequired: false,
+//   reminescenceRequired: false,
+//   chamberMaid: false,
+//   crescentSister: false,
+//   stackingVP: false,
+//   victoryPoints: 0,
+//   negativeVP: false,
+//   purchasePrice: 5,
+//   cardDraw: 0,
+//   employs: 1,
+//   servings: 0,
+//   love: 3,
+//   cardID: 6,
+//   set: 'base_set',
+// },
+// {
+//   name: 'Natsumi Fujikawa',
+//   cardTitle: 'Cleaning Maid',
+//   pictureUrl: null,
+//   promo: false,
+//   employEffect: false,
+//   chiefMaid: false,
+//   beerMaid: false,
+//   eventRequired: false,
+//   couplesRequired: false,
+//   reminescenceRequired: false,
+//   chamberMaid: false,
+//   crescentSister: false,
+//   stackingVP: false,
+//   victoryPoints: 0,
+//   negativeVP: false,
+//   purchasePrice: 5,
+//   cardDraw: 1,
+//   employs: 0,
+//   servings: 2,
+//   love: 0,
+//   cardID: 7,
+//   set: 'base_set',
+// },
+// {
+//   name: 'Rouge Crescent',
+//   cardTitle: 'Chambermaid',
+//   pictureUrl: null,
+//   promo: false,
+//   employEffect: false,
+//   chiefMaid: false,
+//   beerMaid: false,
+//   eventRequired: false,
+//   couplesRequired: false,
+//   reminescenceRequired: false,
+//   chamberMaid: true,
+//   crescentSister: true,
+//   stackingVP: true,
+//   victoryPoints: 1,
+//   negativeVP: false,
+//   purchasePrice: 2,
+//   cardDraw: 0,
+//   employs: 0,
+//   servings: 0,
+//   love: 1,
+//   cardID: 18,
+//   set: 'base_set',
+// },
+// {
+//   name: 'Safran Virginie',
+//   cardTitle: 'Chambermaid',
+//   pictureUrl: null,
+//   promo: false,
+//   employEffect: false,
+//   chiefMaid: false,
+//   beerMaid: false,
+//   eventRequired: false,
+//   couplesRequired: false,
+//   reminescenceRequired: false,
+//   chamberMaid: true,
+//   crescentSister: false,
+//   stackingVP: true,
+//   victoryPoints: 1,
+//   negativeVP: false,
+//   purchasePrice: 3,
+//   cardDraw: 0,
+//   employs: 0,
+//   servings: 0,
+//   love: 2,
+//   cardID: 15,
+//   set: 'base_set',
+// },
+// {
+//   name: 'Nena Wilder',
+//   cardTitle: 'Teasing Maid',
+//   pictureUrl: null,
+//   promo: false,
+//   employEffect: false,
+//   chiefMaid: false,
+//   beerMaid: false,
+//   eventRequired: true,
+//   couplesRequired: false,
+//   reminescenceRequired: false,
+//   chamberMaid: false,
+//   crescentSister: false,
+//   stackingVP: false,
+//   victoryPoints: 0,
+//   negativeVP: false,
+//   purchasePrice: 5,
+//   cardDraw: 0,
+//   employs: 0,
+//   servings: 0,
+//   love: 1,
+//   cardID: 8,
+//   set: 'base_set',
+// },

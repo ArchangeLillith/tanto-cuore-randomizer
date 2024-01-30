@@ -1,0 +1,10 @@
+<div *ngIf="finishedTown !== undefined">
+  <div class="town-grid">
+    <app-card-for-town
+      *ngFor="let card of finishedTown; index as i"
+      [card]="card"
+      [ngClass]="'div' + (i + 1)"
+      genericMaidUrl="{{ genericMaidList[i] }}"
+    ></app-card-for-town>
+  </div>
+</div>

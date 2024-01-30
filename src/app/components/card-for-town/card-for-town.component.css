@@ -1,0 +1,1150 @@
+* {
+  --baseSetBackgroundColor: pink;
+  --baseSetDarkAccentColor: #f7a0af;
+  --baseSetLightAccentColor: #ffd1d9;
+  --baseSetIconEnabled: #ff8fbf;
+  --baseSetIconDisabled: #ffb3d4;
+
+  --romanticVacationBackgroundColor: rgb(194, 232, 246);
+  --romanticVacationtDarkAccentColor: rgb(122, 210, 236);
+  --romanticVacationtLightAccentColor: rgb(216, 232, 237);
+  --romanticVacationtIconEnabled: rgb(13, 115, 146);
+  --romanticVacationtIconDisabled: rgb(96, 188, 216);
+
+  --expandingTheHouseBackgroundColor: rgb(249, 232, 153);
+  --expandingTheHousetDarkAccentColor: rgb(236, 157, 101);
+  --expandingTheHousetLightAccentColor: rgb(255, 254, 214);
+  --expandingTheHousetIconEnabled: rgb(13, 115, 146);
+  --expandingTheHousetIconDisabled: rgb(96, 188, 216);
+}
+
+/* ---------------------- BASE SET--------------------- */
+.card-background.base_set {
+  background-color: var(--baseSetBackgroundColor);
+  margin: 35px 0 35px 0;
+  padding: 2%;
+  align-items: center;
+  width: 205px;
+  height: 280px;
+  border: 4px solid var(--baseSetDarkAccentColor);
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+
+.originalCardImage {
+  padding-top: 85px;
+}
+
+.single-card-grid {
+  padding: 2%;
+  padding-bottom: 4%;
+  width: 200px;
+  height: 280px;
+  display: grid;
+  grid-template-columns: 0.4fr 2.2fr 0.4fr;
+  grid-template-rows: 0.41fr 4.02fr 0.01fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "purchasePrice name VP"
+    "image image image"
+    "bottomSection bottomSection bottomSection"
+    "bottomSection bottomSection bottomSection";
+  align-content: center;
+}
+.img-wrapper {
+  padding: 2%;
+  margin-top: 35px;
+  width: 150px;
+  height: 200px;
+}
+
+/* Top section */
+.purchasePrice.base_set {
+  grid-area: purchasePrice;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--baseSetDarkAccentColor);
+  border-radius: 50px;
+}
+
+.name.base_set {
+  grid-area: name;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--baseSetDarkAccentColor);
+  border-radius: 5px;
+}
+
+.VP.base_set {
+  grid-area: VP;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--baseSetDarkAccentColor);
+  border-radius: 50px;
+}
+
+.image.base_set {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid var(--baseSetDarkAccentColor);
+  border-bottom: 6px solid var(--baseSetDarkAccentColor);
+  margin: 5px 4% 0 8px;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+
+/* Bottom Section */
+.bottomSection.base_set {
+  display: grid;
+  background-color: var(--baseSetBackgroundColor);
+  border-radius: 10px;
+  grid-template-columns: 0.6fr 1.8fr 0.6fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "card-draw effects servings"
+    "love effects employs";
+  grid-area: bottomSection;
+}
+/* Card Draw  */
+.card-draw.base_set {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 3px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconCardDraw valueCardDraw";
+  grid-area: card-draw;
+  background-color: var(--baseSetLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconCardDraw {
+  grid-area: iconCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconCardDraw > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueCardDraw {
+  grid-area: valueCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Love */
+.love.base_set {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconLove valueLove";
+  grid-area: love;
+  background-color: var(--baseSetLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconLove {
+  grid-area: iconLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconLove > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueLove {
+  grid-area: valueLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Effects */
+.effects {
+  grid-area: effects;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Servings  */
+.servings.base_set {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconServings valueServings";
+  grid-area: servings;
+  background-color: var(--baseSetLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconServings {
+  grid-area: iconServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconServings > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueServings {
+  grid-area: valueServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Employs  */
+.employs.base_set {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 3px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconEmploys valueEmploys";
+  grid-area: employs;
+  background-color: var(--baseSetLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconEmploys {
+  grid-area: iconEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconEmploys > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueEmploys {
+  grid-area: valueEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------------------------------------------------OKTOBERFEST-------------------------------------------  */
+
+.card-background.oktoberfest {
+  background-color: var(--baseSetBackgroundColor);
+  margin: 35px 0 35px 0;
+  padding: 2%;
+  align-items: center;
+  width: 205px;
+  height: 280px;
+  border: 4px solid var(--baseSetDarkAccentColor);
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+
+.originalCardImage {
+  padding-top: 85px;
+}
+
+.single-card-grid {
+  padding: 2%;
+  padding-bottom: 4%;
+  width: 200px;
+  height: 280px;
+  display: grid;
+  grid-template-columns: 0.4fr 2.2fr 0.4fr;
+  grid-template-rows: 0.41fr 4.02fr 0.01fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "purchasePrice name VP"
+    "image image image"
+    "bottomSection bottomSection bottomSection"
+    "bottomSection bottomSection bottomSection";
+  align-content: center;
+}
+.img-wrapper {
+  padding: 2%;
+  margin-top: 35px;
+  width: 150px;
+  height: 200px;
+}
+
+/* Top section */
+.purchasePrice.oktoberfest {
+  grid-area: purchasePrice;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--baseSetDarkAccentColor);
+  border-radius: 50px;
+}
+
+.name.oktoberfest {
+  grid-area: name;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--baseSetDarkAccentColor);
+  border-radius: 5px;
+}
+
+.VP.oktoberfest {
+  grid-area: VP;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--baseSetDarkAccentColor);
+  border-radius: 50px;
+}
+
+.image.oktoberfest {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid var(--baseSetDarkAccentColor);
+  border-bottom: 6px solid var(--baseSetDarkAccentColor);
+  margin: 5px 4% 0 8px;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+
+/* Bottom Section */
+.bottomSection.oktoberfest {
+  display: grid;
+  background-color: var(--baseSetBackgroundColor);
+  border-radius: 10px;
+  grid-template-columns: 0.6fr 1.8fr 0.6fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "card-draw effects servings"
+    "love effects employs";
+  grid-area: bottomSection;
+}
+/* Card Draw  */
+.card-draw.oktoberfest {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 3px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconCardDraw valueCardDraw";
+  grid-area: card-draw;
+  background-color: var(--baseSetLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconCardDraw {
+  grid-area: iconCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconCardDraw > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueCardDraw {
+  grid-area: valueCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Love */
+.love.oktoberfest {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconLove valueLove";
+  grid-area: love;
+  background-color: var(--baseSetLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconLove {
+  grid-area: iconLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconLove > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueLove {
+  grid-area: valueLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Effects */
+.effects {
+  grid-area: effects;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Servings  */
+.servings.oktoberfest {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconServings valueServings";
+  grid-area: servings;
+  background-color: var(--baseSetLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconServings {
+  grid-area: iconServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconServings > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueServings {
+  grid-area: valueServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Employs  */
+.employs.oktoberfest {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 3px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconEmploys valueEmploys";
+  grid-area: employs;
+  background-color: var(--baseSetLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconEmploys {
+  grid-area: iconEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconEmploys > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueEmploys {
+  grid-area: valueEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --------------------------------------------------------ROMANTIC VACATION------------------------------------ */
+.card-background.romantic_vacation {
+  background-color: var(--romanticVacationBackgroundColor);
+  margin: 35px 0 35px 0;
+  padding: 2%;
+  align-items: center;
+  width: 205px;
+  height: 280px;
+  border: 4px solid var(--romanticVacationtDarkAccentColor);
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+
+.originalCardImage {
+  padding-top: 85px;
+}
+
+.single-card-grid {
+  padding: 2%;
+  padding-bottom: 4%;
+  width: 200px;
+  height: 280px;
+  display: grid;
+  grid-template-columns: 0.4fr 2.2fr 0.4fr;
+  grid-template-rows: 0.41fr 4.02fr 0.01fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "purchasePrice name VP"
+    "image image image"
+    "bottomSection bottomSection bottomSection"
+    "bottomSection bottomSection bottomSection";
+  align-content: center;
+}
+.img-wrapper {
+  padding: 2%;
+  margin-top: 35px;
+  width: 150px;
+  height: 200px;
+}
+
+/* Top section */
+.purchasePrice.romantic_vacation {
+  grid-area: purchasePrice;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--romanticVacationtDarkAccentColor);
+  border-radius: 50px;
+}
+
+.name.romantic_vacation {
+  grid-area: name;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--romanticVacationtDarkAccentColor);
+  border-radius: 5px;
+}
+
+.VP.romantic_vacation {
+  grid-area: VP;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--romanticVacationtDarkAccentColor);
+  border-radius: 50px;
+}
+
+.image.romantic_vacation {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid var(--romanticVacationtDarkAccentColor);
+  border-bottom: 6px solid var(--romanticVacationtDarkAccentColor);
+  margin: 5px 4% 0 8px;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+
+/* Bottom Section */
+.bottomSection.romantic_vacation {
+  display: grid;
+  background-color: var(--romanticVacationBackgroundColor);
+  border-radius: 10px;
+  grid-template-columns: 0.6fr 1.8fr 0.6fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "card-draw effects servings"
+    "love effects employs";
+  grid-area: bottomSection;
+}
+/* Card Draw  */
+.card-draw.romantic_vacation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 3px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconCardDraw valueCardDraw";
+  grid-area: card-draw;
+  background-color: var(--romanticVacationLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconCardDraw {
+  grid-area: iconCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconCardDraw > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueCardDraw {
+  grid-area: valueCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Love */
+.love.romantic_vacation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconLove valueLove";
+  grid-area: love;
+  background-color: var(--romanticVacationLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconLove {
+  grid-area: iconLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconLove > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueLove {
+  grid-area: valueLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Effects */
+.effects {
+  grid-area: effects;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Servings  */
+.servings.romantic_vacation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconServings valueServings";
+  grid-area: servings;
+  background-color: var(--romanticVacationLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconServings {
+  grid-area: iconServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconServings > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueServings {
+  grid-area: valueServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Employs  */
+.employs.romantic_vacation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 3px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconEmploys valueEmploys";
+  grid-area: employs;
+  background-color: var(--romanticVacationLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconEmploys {
+  grid-area: iconEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconEmploys > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueEmploys {
+  grid-area: valueEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------------------------------------------------EXPANDING THE HOUSE---------------------------------- */
+.card-background.expanding_the_house {
+  background-color: var(--expandingTheHouseBackgroundColor);
+  margin: 35px 0 35px 0;
+  padding: 2%;
+  align-items: center;
+  width: 205px;
+  height: 280px;
+  border: 4px solid var(--expandingTheHouseDarkAccentColor);
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+
+.originalCardImage {
+  padding-top: 85px;
+}
+
+.single-card-grid {
+  padding: 2%;
+  padding-bottom: 4%;
+  width: 200px;
+  height: 280px;
+  display: grid;
+  grid-template-columns: 0.4fr 2.2fr 0.4fr;
+  grid-template-rows: 0.41fr 4.02fr 0.01fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "purchasePrice name VP"
+    "image image image"
+    "bottomSection bottomSection bottomSection"
+    "bottomSection bottomSection bottomSection";
+  align-content: center;
+}
+.img-wrapper {
+  padding: 2%;
+  margin-top: 35px;
+  width: 150px;
+  height: 200px;
+}
+
+/* Top section */
+.purchasePrice.expanding_the_house {
+  grid-area: purchasePrice;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--expandingTheHouseDarkAccentColor);
+  border-radius: 50px;
+}
+
+.name.expanding_the_house {
+  grid-area: name;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--expandingTheHouseDarkAccentColor);
+  border-radius: 5px;
+}
+
+.VP.expanding_the_house {
+  grid-area: VP;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--expandingTheHouseDarkAccentColor);
+  border-radius: 50px;
+}
+
+.image.expanding_the_house {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid var(--expandingTheHouseDarkAccentColor);
+  border-bottom: 6px solid var(--expandingTheHouseDarkAccentColor);
+  margin: 5px 4% 0 8px;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+
+/* Bottom Section */
+.bottomSection.expanding_the_house {
+  display: grid;
+  background-color: var(--expandingTheHouseBackgroundColor);
+  border-radius: 10px;
+  grid-template-columns: 0.6fr 1.8fr 0.6fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "card-draw effects servings"
+    "love effects employs";
+  grid-area: bottomSection;
+}
+/* Card Draw  */
+.card-draw.expanding_the_house {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 3px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconCardDraw valueCardDraw";
+  grid-area: card-draw;
+  background-color: var(--expandingTheHouseLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconCardDraw {
+  grid-area: iconCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconCardDraw > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueCardDraw {
+  grid-area: valueCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Love */
+.love.expanding_the_house {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconLove valueLove";
+  grid-area: love;
+  background-color: var(--expandingTheHouseLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconLove {
+  grid-area: iconLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconLove > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueLove {
+  grid-area: valueLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Effects */
+.effects {
+  grid-area: effects;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Servings  */
+.servings.expanding_the_house {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconServings valueServings";
+  grid-area: servings;
+  background-color: var(--expandingTheHouseLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconServings {
+  grid-area: iconServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconServings > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueServings {
+  grid-area: valueServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Employs  */
+.employs.expanding_the_house {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 3px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconEmploys valueEmploys";
+  grid-area: employs;
+  background-color: var(--expandingTheHouseLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconEmploys {
+  grid-area: iconEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconEmploys > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueEmploys {
+  grid-area: valueEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*------------------ WINTER ROMANCE------------------- */
+.card-background.winter_romance {
+  background-color: var(--baseSetBackgroundColor);
+  margin: 35px 0 35px 0;
+  padding: 2%;
+  align-items: center;
+  width: 205px;
+  height: 280px;
+  border: 4px solid var(--baseSetDarkAccentColor);
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+
+.originalCardImage {
+  padding-top: 85px;
+}
+
+.single-card-grid {
+  padding: 2%;
+  padding-bottom: 4%;
+  width: 200px;
+  height: 280px;
+  display: grid;
+  grid-template-columns: 0.4fr 2.2fr 0.4fr;
+  grid-template-rows: 0.41fr 4.02fr 0.01fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "purchasePrice name VP"
+    "image image image"
+    "bottomSection bottomSection bottomSection"
+    "bottomSection bottomSection bottomSection";
+  align-content: center;
+}
+.img-wrapper {
+  padding: 2%;
+  margin-top: 35px;
+  width: 150px;
+  height: 200px;
+}
+
+/* Top section */
+.purchasePrice.winter_romance {
+  grid-area: purchasePrice;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--baseSetDarkAccentColor);
+  border-radius: 50px;
+}
+
+.name.winter_romance {
+  grid-area: name;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--baseSetDarkAccentColor);
+  border-radius: 5px;
+}
+
+.VP.winter_romance {
+  grid-area: VP;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--baseSetDarkAccentColor);
+  border-radius: 50px;
+}
+
+.image.winter_romance {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid var(--baseSetDarkAccentColor);
+  border-bottom: 6px solid var(--baseSetDarkAccentColor);
+  margin: 5px 4% 0 8px;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+
+/* Bottom Section */
+.bottomSection.winter_romance {
+  display: grid;
+  background-color: var(--baseSetBackgroundColor);
+  border-radius: 10px;
+  grid-template-columns: 0.6fr 1.8fr 0.6fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "card-draw effects servings"
+    "love effects employs";
+  grid-area: bottomSection;
+}
+/* Card Draw  */
+.card-draw.winter_romance {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 3px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconCardDraw valueCardDraw";
+  grid-area: card-draw;
+  background-color: var(--baseSetLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconCardDraw {
+  grid-area: iconCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconCardDraw > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueCardDraw {
+  grid-area: valueCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Love */
+.love.winter_romance {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconLove valueLove";
+  grid-area: love;
+  background-color: var(--baseSetLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconLove {
+  grid-area: iconLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconLove > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueLove {
+  grid-area: valueLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Effects */
+.effects {
+  grid-area: effects;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Servings  */
+.servings.winter_romance {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconServings valueServings";
+  grid-area: servings;
+  background-color: var(--baseSetLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconServings {
+  grid-area: iconServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconServings > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueServings {
+  grid-area: valueServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Employs  */
+.employs.winter_romance {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 3px;
+  grid-auto-flow: row;
+  grid-template-areas: "iconEmploys valueEmploys";
+  grid-area: employs;
+  background-color: var(--baseSetLightAccentColor);
+  border-radius: 50px;
+  padding: 4px;
+  margin: 2px;
+}
+.iconEmploys {
+  grid-area: iconEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconEmploys > svg {
+  width: 15px;
+  height: 15px;
+}
+.valueEmploys {
+  grid-area: valueEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

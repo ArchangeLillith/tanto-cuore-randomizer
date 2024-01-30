@@ -20,7 +20,15 @@
 
 .web-container {
   background-image: url("./assets/hearts.png");
-  background-size: auto;
+  height: 100%;
+}
+
+.finished-town {
+  padding: 2% 0 5% 0;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .options-box {
@@ -30,6 +38,19 @@
   padding: 1% 4%;
   border: 3px solid rgb(250, 146, 163);
   background-color: pink;
+  flex-direction: column;
+  width: 550px;
+  margin: 10px 0px 10px 0px;
+}
+
+.warning-box {
+  display: flex;
+  align-items: normal;
+  justify-content: center;
+  text-align: center;
+  padding: 1% 4%;
+  border: 3px solid rgb(220, 94, 115);
+  background-color: rgb(254, 162, 177);
   flex-direction: column;
   width: 550px;
   margin: 10px 0px 10px 0px;
@@ -45,6 +66,33 @@ h3 {
 
 .header-wrapper {
   background: rgb(250, 146, 163);
+  border-radius: 10px;
+  height: fit-content;
+  width: fit-content;
+  padding: 1%;
+  align-self: center;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+
+.header-wrapper-finished-town {
+  background: rgb(250, 146, 163);
+  border-radius: 10px;
+  height: fit-content;
+  width: fit-content;
+  padding: 10px;
+  align-self: center;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+
+.finished-town-header {
+  margin: 0;
+}
+
+.warning-header-wrapper {
+  background: rgb(220, 94, 115);
+  color: rgb(251, 221, 226);
   border-radius: 10px;
   height: fit-content;
   width: fit-content;

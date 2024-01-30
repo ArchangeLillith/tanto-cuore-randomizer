@@ -27,7 +27,7 @@ export type FilterObject = {
 export type Card = {
   name: string;
   cardTitle: string;
-  pictureUrl: string;
+  pictureUrl: string | null;
   promo: boolean;
   employEffect: boolean;
   chiefMaid: boolean;

@@ -9,6 +9,8 @@ import { BoxWithCheckboxComponent } from './components/box-with-checkbox/box-wit
 import { BoxWithRadioButtonsComponent } from './components/box-with-radio-buttons/box-with-radio-buttons.component';
 import { BoxWithDropdownComponent } from './components/box-with-dropdown/box-with-dropdown.component';
 import { BoxWithMutexCheckboxesComponent } from './components/box-with-mutex-checkboxes/box-with-mutex-checkboxes.component';
+import { CardForTownComponent } from './components/card-for-town/card-for-town.component';
+import { CardGridComponent } from './components/card-grid/card-grid.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { BoxWithMutexCheckboxesComponent } from './components/box-with-mutex-che
     BoxWithRadioButtonsComponent,
     BoxWithDropdownComponent,
     BoxWithMutexCheckboxesComponent,
+    CardForTownComponent,
+    CardGridComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
