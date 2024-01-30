@@ -63,12 +63,18 @@ Here's how:
 
 * Angular
 * TypeScript
-
-
-
+* 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## Image Gallery
+<div align="center">
+  
+![Top-Options](https://github.com/ArchangeLillith/tanto-cuore-randomizer/blob/master/Top-Tanto-Cuore-Options.png)
+![Bottom-Options](https://github.com/ArchangeLillith/tanto-cuore-randomizer/blob/master/Bottom-Tanto-Cuore-Options.png)
+![Finished-Town](https://github.com/ArchangeLillith/tanto-cuore-randomizer/blob/master/Finished-Town.png)
+
+</div>
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -78,10 +84,7 @@ This project only runs if a server of cards (from Tanto Cuore Funnel) is running
 
 A web browser, preferably Chrome, and the database from Tanto Cuore Funnel running on http://localhost:5000
 
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 # TantoCuoreRandomizer
 
