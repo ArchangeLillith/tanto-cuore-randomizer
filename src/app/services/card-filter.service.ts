@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, filter, first } from 'rxjs';
+import { Observable } from 'rxjs';
 import { FilterObject } from '../Utils/types';
 import { Card } from '../Utils/types';
 

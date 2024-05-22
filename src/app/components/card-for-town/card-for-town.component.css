@@ -1,45 +1,66 @@
 * {
   --baseSetBackgroundColor: pink;
-  --baseSetDarkAccentColor: #f7a0af;
   --baseSetLightAccentColor: #ffd1d9;
-  --baseSetIconEnabled: #ff8fbf;
+  --baseSetDarkAccentColor: #f7a0af;
+  --baseSetIconEnabled: #fa81b5;
   --baseSetIconDisabled: #ffb3d4;
 
   --romanticVacationBackgroundColor: rgb(194, 232, 246);
-  --romanticVacationtDarkAccentColor: rgb(122, 210, 236);
-  --romanticVacationtLightAccentColor: rgb(216, 232, 237);
-  --romanticVacationtIconEnabled: rgb(13, 115, 146);
-  --romanticVacationtIconDisabled: rgb(96, 188, 216);
+  --romanticVacationDarkAccentColor: rgb(122, 210, 236);
+  --romanticVacationLightAccentColor: rgb(216, 232, 237);
+  --romanticVacationIconEnabled: rgb(13, 115, 146);
+  --romanticVacationIconDisabled: rgb(96, 188, 216);
 
   --expandingTheHouseBackgroundColor: rgb(249, 232, 153);
-  --expandingTheHousetDarkAccentColor: rgb(236, 157, 101);
-  --expandingTheHousetLightAccentColor: rgb(255, 254, 214);
-  --expandingTheHousetIconEnabled: rgb(13, 115, 146);
-  --expandingTheHousetIconDisabled: rgb(96, 188, 216);
+  --expandingTheHouseDarkAccentColor: rgb(229, 196, 89);
+  --expandingTheHouseLightAccentColor: rgb(255, 254, 214);
+  --expandingTheHouseIconEnabled: rgb(190, 175, 90);
+  --expandingTheHouseIconDisabled: rgb(221, 219, 181);
+
+  --winterRomanceBackgroundColor: rgb(138, 166, 236);
+  --winterRomanceDarkAccentColor: rgb(99, 128, 196);
+  --winterRomanceLightAccentColor: rgb(199, 210, 251);
+  --winterRomanceIconEnabled: rgb(89, 119, 194);
+  --winterRomanceIconDisabled: rgb(151, 173, 228);
+
+  --oktoberfestBackgroundColor: rgb(238, 173, 127);
+  --oktoberfestDarkAccentColor: rgb(193, 119, 76);
+  --oktoberfestLightAccentColor: rgb(193, 137, 104);
+  --oktoberfestIconEnabled: rgb(156, 76, 19);
+  --oktoberfestIconDisabled: rgb(229, 189, 161);
 }
 
 /* ---------------------- BASE SET--------------------- */
+.card-background {
+  margin: 35px 0 35px 0;
+  padding: 2%;
+  align-items: center;
+  width: 205px;
+  height: 290px;
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
 .card-background.base_set {
   background-color: var(--baseSetBackgroundColor);
   margin: 35px 0 35px 0;
   padding: 2%;
   align-items: center;
   width: 205px;
-  height: 280px;
+  height: 320px;
   border: 4px solid var(--baseSetDarkAccentColor);
   border-radius: 10px;
   padding-bottom: 20px;
 }
 
 .originalCardImage {
-  padding-top: 85px;
+  padding-top: 100px;
 }
 
 .single-card-grid {
   padding: 2%;
   padding-bottom: 4%;
-  width: 200px;
-  height: 280px;
+  width: 205px;
+  height: 300px;
   display: grid;
   grid-template-columns: 0.4fr 2.2fr 0.4fr;
   grid-template-rows: 0.41fr 4.02fr 0.01fr 1fr;
@@ -112,6 +133,41 @@
     "love effects employs";
   grid-area: bottomSection;
 }
+
+/* Set the icon sizes */
+.iconLoveEnabled > svg {
+  width: 15px;
+  height: 15px;
+}
+.iconCardDrawEnabled > svg {
+  width: 15px;
+  height: 15px;
+}
+.iconServingsEnabled > svg {
+  width: 15px;
+  height: 15px;
+}
+.iconEmploysEnabled > svg {
+  width: 15px;
+  height: 15px;
+}
+.iconLoveDisabled > svg {
+  width: 15px;
+  height: 15px;
+}
+.iconCardDrawDisabled > svg {
+  width: 15px;
+  height: 15px;
+}
+.iconServingsDisabled > svg {
+  width: 15px;
+  height: 15px;
+}
+.iconEmploysDisabled > svg {
+  width: 15px;
+  height: 15px;
+}
+
 /* Card Draw  */
 .card-draw.base_set {
   display: grid;
@@ -119,28 +175,40 @@
   grid-template-rows: 1fr;
   gap: 0px 3px;
   grid-auto-flow: row;
-  grid-template-areas: "iconCardDraw valueCardDraw";
+  grid-template-areas: " valueCardDraw iconCardDraw";
   grid-area: card-draw;
   background-color: var(--baseSetLightAccentColor);
   border-radius: 50px;
   padding: 4px;
   margin: 2px;
 }
-.iconCardDraw {
+.iconCardDrawEnabled.base_set {
   grid-area: iconCardDraw;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--baseSetIconEnabled);
 }
-.iconCardDraw > svg {
-  width: 15px;
-  height: 15px;
+.iconCardDrawDisabled.base_set {
+  grid-area: iconCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--baseSetIconDisabled);
 }
-.valueCardDraw {
+.valueCardDrawHasValue.base_set {
   grid-area: valueCardDraw;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--baseSetIconEnabled);
+}
+.valueCardDrawIsZero.base_set {
+  grid-area: valueCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--baseSetIconDisabled);
 }
 
 /* Love */
@@ -150,28 +218,40 @@
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas: "iconLove valueLove";
+  grid-template-areas: "valueLove iconLove ";
   grid-area: love;
   background-color: var(--baseSetLightAccentColor);
   border-radius: 50px;
   padding: 4px;
   margin: 2px;
 }
-.iconLove {
+.iconLoveEnabled.base_set {
   grid-area: iconLove;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--baseSetIconEnabled);
 }
-.iconLove > svg {
-  width: 15px;
-  height: 15px;
+.iconLoveDisabled.base_set {
+  grid-area: iconLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--baseSetIconDisabled);
 }
-.valueLove {
+.valueLoveHasValue.base_set {
   grid-area: valueLove;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--baseSetIconEnabled);
+}
+.valueLoveIsZero.base_set {
+  grid-area: valueLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--baseSetIconDisabled);
 }
 
 /* Effects */
@@ -196,21 +276,34 @@
   padding: 4px;
   margin: 2px;
 }
-.iconServings {
+.iconServingsEnabled.base_set {
   grid-area: iconServings;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--baseSetIconEnabled);
 }
-.iconServings > svg {
-  width: 15px;
-  height: 15px;
+.iconServingsDisabled.base_set {
+  grid-area: iconServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--baseSetIconDisabled);
 }
-.valueServings {
+
+.valueServingsHasValue.base_set {
   grid-area: valueServings;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--baseSetIconEnabled);
+}
+.valueServingsIsZero.base_set {
+  grid-area: valueServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--baseSetIconDisabled);
 }
 
 /* Employs  */
@@ -227,39 +320,47 @@
   padding: 4px;
   margin: 2px;
 }
-.iconEmploys {
+.iconEmploysEnabled.base_set {
   grid-area: iconEmploys;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--baseSetIconEnabled);
 }
-.iconEmploys > svg {
-  width: 15px;
-  height: 15px;
+.iconEmploysDisabled.base_set {
+  grid-area: iconEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--baseSetIconDisabled);
 }
-.valueEmploys {
+
+.valueEmploysHasValue.base_set {
   grid-area: valueEmploys;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--baseSetIconEnabled);
+}
+.valueEmploysIsZero.base_set {
+  grid-area: valueEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--baseSetIconDisabled);
 }
 
 /* ---------------------------------------------------OKTOBERFEST-------------------------------------------  */
 
 .card-background.oktoberfest {
-  background-color: var(--baseSetBackgroundColor);
+  background-color: var(--oktoberfestBackgroundColor);
   margin: 35px 0 35px 0;
   padding: 2%;
   align-items: center;
-  width: 205px;
-  height: 280px;
-  border: 4px solid var(--baseSetDarkAccentColor);
+
+  border: 4px solid var(--oktoberfestDarkAccentColor);
   border-radius: 10px;
   padding-bottom: 20px;
-}
-
-.originalCardImage {
-  padding-top: 85px;
 }
 
 .single-card-grid {
@@ -291,7 +392,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--baseSetDarkAccentColor);
+  background-color: var(--oktoberfestDarkAccentColor);
   border-radius: 50px;
 }
 
@@ -301,7 +402,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: var(--baseSetDarkAccentColor);
+  background-color: var(--oktoberfestDarkAccentColor);
   border-radius: 5px;
 }
 
@@ -310,7 +411,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--baseSetDarkAccentColor);
+  background-color: var(--oktoberfestDarkAccentColor);
   border-radius: 50px;
 }
 
@@ -319,8 +420,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 4px solid var(--baseSetDarkAccentColor);
-  border-bottom: 6px solid var(--baseSetDarkAccentColor);
+  border: 4px solid var(--oktoberfestDarkAccentColor);
+  border-bottom: 6px solid var(--oktoberfestDarkAccentColor);
   margin: 5px 4% 0 8px;
   border-radius: 5px;
   margin-bottom: 2px;
@@ -329,7 +430,7 @@
 /* Bottom Section */
 .bottomSection.oktoberfest {
   display: grid;
-  background-color: var(--baseSetBackgroundColor);
+  background-color: var(--oktoberfestBackgroundColor);
   border-radius: 10px;
   grid-template-columns: 0.6fr 1.8fr 0.6fr;
   grid-template-rows: 1fr 1fr;
@@ -346,28 +447,40 @@
   grid-template-rows: 1fr;
   gap: 0px 3px;
   grid-auto-flow: row;
-  grid-template-areas: "iconCardDraw valueCardDraw";
+  grid-template-areas: " valueCardDraw iconCardDraw";
   grid-area: card-draw;
-  background-color: var(--baseSetLightAccentColor);
+  background-color: var(--oktoberfestLightAccentColor);
   border-radius: 50px;
   padding: 4px;
   margin: 2px;
 }
-.iconCardDraw {
+.iconCardDrawEnabled.oktoberfest {
   grid-area: iconCardDraw;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--oktoberfestIconEnabled);
 }
-.iconCardDraw > svg {
-  width: 15px;
-  height: 15px;
+.iconCardDrawDisabled.oktoberfest {
+  grid-area: iconCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--oktoberfestIconDisabled);
 }
-.valueCardDraw {
+.valueCardDrawHasValue.oktoberfest {
   grid-area: valueCardDraw;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--oktoberfestIconEnabled);
+}
+.valueCardDrawIsZero.oktoberfest {
+  grid-area: valueCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--oktoberfestIconDisabled);
 }
 
 /* Love */
@@ -377,28 +490,40 @@
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas: "iconLove valueLove";
+  grid-template-areas: "valueLove iconLove ";
   grid-area: love;
-  background-color: var(--baseSetLightAccentColor);
+  background-color: var(--oktoberfestLightAccentColor);
   border-radius: 50px;
   padding: 4px;
   margin: 2px;
 }
-.iconLove {
+.iconLoveEnabled.oktoberfest {
   grid-area: iconLove;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--oktoberfestIconEnabled);
 }
-.iconLove > svg {
-  width: 15px;
-  height: 15px;
+.iconLoveDisabled.oktoberfest {
+  grid-area: iconLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--oktoberfestIconDisabled);
 }
-.valueLove {
+.valueLoveHasValue.oktoberfest {
   grid-area: valueLove;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--oktoberfestIconEnabled);
+}
+.valueLoveIsZero.oktoberfest {
+  grid-area: valueLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--oktoberfestIconDisabled);
 }
 
 /* Effects */
@@ -418,26 +543,38 @@
   grid-auto-flow: row;
   grid-template-areas: "iconServings valueServings";
   grid-area: servings;
-  background-color: var(--baseSetLightAccentColor);
+  background-color: var(--oktoberfestLightAccentColor);
   border-radius: 50px;
   padding: 4px;
   margin: 2px;
 }
-.iconServings {
+.iconServingsEnabled.oktoberfest {
   grid-area: iconServings;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--oktoberfestIconEnabled);
 }
-.iconServings > svg {
-  width: 15px;
-  height: 15px;
+.iconServingsDisabled.oktoberfest {
+  grid-area: iconServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--oktoberfestIconDisabled);
 }
-.valueServings {
+.valueServingsHasValue.oktoberfest {
   grid-area: valueServings;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--oktoberfestIconEnabled);
+}
+.valueServingsIsZero.oktoberfest {
+  grid-area: valueServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--oktoberfestIconDisabled);
 }
 
 /* Employs  */
@@ -449,26 +586,38 @@
   grid-auto-flow: row;
   grid-template-areas: "iconEmploys valueEmploys";
   grid-area: employs;
-  background-color: var(--baseSetLightAccentColor);
+  background-color: var(--oktoberfestLightAccentColor);
   border-radius: 50px;
   padding: 4px;
   margin: 2px;
 }
-.iconEmploys {
+.iconEmploysEnabled.oktoberfest {
   grid-area: iconEmploys;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--oktoberfestIconEnabled);
 }
-.iconEmploys > svg {
-  width: 15px;
-  height: 15px;
+.iconEmploysDisabled.oktoberfest {
+  grid-area: iconEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--oktoberfestIconDisabled);
 }
-.valueEmploys {
+.valueEmploysHasValue.oktoberfest {
   grid-area: valueEmploys;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--oktoberfestIconEnabled);
+}
+.valueEmploysIsZero.oktoberfest {
+  grid-area: valueEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--oktoberfestIconDisabled);
 }
 
 /* --------------------------------------------------------ROMANTIC VACATION------------------------------------ */
@@ -477,15 +626,10 @@
   margin: 35px 0 35px 0;
   padding: 2%;
   align-items: center;
-  width: 205px;
-  height: 280px;
-  border: 4px solid var(--romanticVacationtDarkAccentColor);
+
+  border: 4px solid var(--romanticVacationDarkAccentColor);
   border-radius: 10px;
   padding-bottom: 20px;
-}
-
-.originalCardImage {
-  padding-top: 85px;
 }
 
 .single-card-grid {
@@ -517,7 +661,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--romanticVacationtDarkAccentColor);
+  background-color: var(--romanticVacationDarkAccentColor);
   border-radius: 50px;
 }
 
@@ -527,7 +671,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: var(--romanticVacationtDarkAccentColor);
+  background-color: var(--romanticVacationDarkAccentColor);
   border-radius: 5px;
 }
 
@@ -536,7 +680,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--romanticVacationtDarkAccentColor);
+  background-color: var(--romanticVacationDarkAccentColor);
   border-radius: 50px;
 }
 
@@ -545,8 +689,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 4px solid var(--romanticVacationtDarkAccentColor);
-  border-bottom: 6px solid var(--romanticVacationtDarkAccentColor);
+  border: 4px solid var(--romanticVacationDarkAccentColor);
+  border-bottom: 6px solid var(--romanticVacationDarkAccentColor);
   margin: 5px 4% 0 8px;
   border-radius: 5px;
   margin-bottom: 2px;
@@ -572,28 +716,40 @@
   grid-template-rows: 1fr;
   gap: 0px 3px;
   grid-auto-flow: row;
-  grid-template-areas: "iconCardDraw valueCardDraw";
+  grid-template-areas: " valueCardDraw iconCardDraw";
   grid-area: card-draw;
   background-color: var(--romanticVacationLightAccentColor);
   border-radius: 50px;
   padding: 4px;
   margin: 2px;
 }
-.iconCardDraw {
+.iconCardDrawEnabled.romantic_vacation {
   grid-area: iconCardDraw;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--romanticVacationIconEnabled);
 }
-.iconCardDraw > svg {
-  width: 15px;
-  height: 15px;
+.iconCardDrawDisabled.romantic_vacation {
+  grid-area: iconCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--romanticVacationIconDisabled);
 }
-.valueCardDraw {
+.valueCardDrawHasValue.romantic_vacation {
   grid-area: valueCardDraw;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--romanticVacationIconEnabled);
+}
+.valueCardDrawIsZero.romantic_vacation {
+  grid-area: valueCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--romanticVacationIconDisabled);
 }
 
 /* Love */
@@ -603,28 +759,40 @@
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas: "iconLove valueLove";
+  grid-template-areas: " valueLove iconLove";
   grid-area: love;
   background-color: var(--romanticVacationLightAccentColor);
   border-radius: 50px;
   padding: 4px;
   margin: 2px;
 }
-.iconLove {
+.iconLoveEnabled.romantic_vacation {
   grid-area: iconLove;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--romanticVacationIconEnabled);
 }
-.iconLove > svg {
-  width: 15px;
-  height: 15px;
+.iconLoveDisabled.romantic_vacation {
+  grid-area: iconLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--romanticVacationIconDisabled);
 }
-.valueLove {
+.valueLoveHasValue.romantic_vacation {
   grid-area: valueLove;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--romanticVacationIconEnabled);
+}
+.valueLoveIsZero.romantic_vacation {
+  grid-area: valueLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--romanticVacationIconDisabled);
 }
 
 /* Effects */
@@ -649,21 +817,33 @@
   padding: 4px;
   margin: 2px;
 }
-.iconServings {
+.iconServingsEnabled.romantic_vacation {
   grid-area: iconServings;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--romanticVacationIconEnabled);
 }
-.iconServings > svg {
-  width: 15px;
-  height: 15px;
+.iconServingsDisabled.romantic_vacation {
+  grid-area: iconServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--romanticVacationIconDisabled);
 }
-.valueServings {
+.valueServingsHasValue.romantic_vacation {
   grid-area: valueServings;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--romanticVacationIconEnabled);
+}
+.valueServingsIsZero.romantic_vacation {
+  grid-area: valueServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--romanticVacationIconDisabled);
 }
 
 /* Employs  */
@@ -680,21 +860,33 @@
   padding: 4px;
   margin: 2px;
 }
-.iconEmploys {
+.iconEmploysEnabled.romantic_vacation {
   grid-area: iconEmploys;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--romanticVacationIconEnabled);
 }
-.iconEmploys > svg {
-  width: 15px;
-  height: 15px;
+.iconEmploysDisabled.romantic_vacation {
+  grid-area: iconEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--romanticVacationIconDisabled);
 }
-.valueEmploys {
+.valueEmploysHasValue.romantic_vacation {
   grid-area: valueEmploys;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--romanticVacationIconEnabled);
+}
+.valueEmploysIsZero.romantic_vacation {
+  grid-area: valueEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--romanticVacationIconDisabled);
 }
 
 /* ---------------------------------------------------EXPANDING THE HOUSE---------------------------------- */
@@ -703,15 +895,10 @@
   margin: 35px 0 35px 0;
   padding: 2%;
   align-items: center;
-  width: 205px;
-  height: 280px;
+
   border: 4px solid var(--expandingTheHouseDarkAccentColor);
   border-radius: 10px;
   padding-bottom: 20px;
-}
-
-.originalCardImage {
-  padding-top: 85px;
 }
 
 .single-card-grid {
@@ -798,28 +985,40 @@
   grid-template-rows: 1fr;
   gap: 0px 3px;
   grid-auto-flow: row;
-  grid-template-areas: "iconCardDraw valueCardDraw";
+  grid-template-areas: " valueCardDraw iconCardDraw";
   grid-area: card-draw;
   background-color: var(--expandingTheHouseLightAccentColor);
   border-radius: 50px;
   padding: 4px;
   margin: 2px;
 }
-.iconCardDraw {
+.iconCardDrawEnabled.expanding_the_house {
   grid-area: iconCardDraw;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--expandingTheHouseIconEnabled);
 }
-.iconCardDraw > svg {
-  width: 15px;
-  height: 15px;
+.iconCardDrawDisabled.expanding_the_house {
+  grid-area: iconCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--expandingTheHouseIconDisabled);
 }
-.valueCardDraw {
+.valueCardDrawHasValue.expanding_the_house {
   grid-area: valueCardDraw;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--expandingTheHouseIconEnabled);
+}
+.valueCardDrawIsZero.expanding_the_house {
+  grid-area: valueCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--expandingTheHouseIconDisabled);
 }
 
 /* Love */
@@ -829,28 +1028,40 @@
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas: "iconLove valueLove";
+  grid-template-areas: " valueLove iconLove";
   grid-area: love;
   background-color: var(--expandingTheHouseLightAccentColor);
   border-radius: 50px;
   padding: 4px;
   margin: 2px;
 }
-.iconLove {
+.iconLoveEnabled.expanding_the_house {
   grid-area: iconLove;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--expandingTheHouseIconEnabled);
 }
-.iconLove > svg {
-  width: 15px;
-  height: 15px;
+.iconLoveDisabled.expanding_the_house {
+  grid-area: iconLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--expandingTheHouseIconDisabled);
 }
-.valueLove {
+.valueLoveHasValue.expanding_the_house {
   grid-area: valueLove;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--expandingTheHouseIconEnabled);
+}
+.valueLoveIsZero.expanding_the_house {
+  grid-area: valueLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--expandingTheHouseIconDisabled);
 }
 
 /* Effects */
@@ -875,21 +1086,33 @@
   padding: 4px;
   margin: 2px;
 }
-.iconServings {
+.iconServingsEnabled.expanding_the_house {
   grid-area: iconServings;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--expandingTheHouseIconEnabled);
 }
-.iconServings > svg {
-  width: 15px;
-  height: 15px;
+.iconServingsDisabled.expanding_the_house {
+  grid-area: iconServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--expandingTheHouseIconDisabled);
 }
-.valueServings {
+.valueServingsHasValue.expanding_the_house {
   grid-area: valueServings;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--expandingTheHouseIconEnabled);
+}
+.valueServingsIsZero.expanding_the_house {
+  grid-area: valueServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--expandingTheHouseIconDisabled);
 }
 
 /* Employs  */
@@ -906,38 +1129,45 @@
   padding: 4px;
   margin: 2px;
 }
-.iconEmploys {
+.iconEmploysEnabled.expanding_the_house {
   grid-area: iconEmploys;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--expandingTheHouseIconEnabled);
 }
-.iconEmploys > svg {
-  width: 15px;
-  height: 15px;
+.iconEmploysDisabled.expanding_the_house {
+  grid-area: iconEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--expandingTheHouseIconDisabled);
 }
-.valueEmploys {
+.valueEmploysHasValue.expanding_the_house {
   grid-area: valueEmploys;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--expandingTheHouseIconEnabled);
+}
+.valueEmploysIsZero.expanding_the_house {
+  grid-area: valueEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--expandingTheHouseIconDisabled);
 }
 
 /*------------------ WINTER ROMANCE------------------- */
 .card-background.winter_romance {
-  background-color: var(--baseSetBackgroundColor);
+  background-color: var(--winterRomanceBackgroundColor);
   margin: 35px 0 35px 0;
   padding: 2%;
   align-items: center;
-  width: 205px;
-  height: 280px;
-  border: 4px solid var(--baseSetDarkAccentColor);
+
+  border: 4px solid var(--winterRomanceDarkAccentColor);
   border-radius: 10px;
   padding-bottom: 20px;
-}
-
-.originalCardImage {
-  padding-top: 85px;
 }
 
 .single-card-grid {
@@ -969,7 +1199,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--baseSetDarkAccentColor);
+  background-color: var(--winterRomanceDarkAccentColor);
   border-radius: 50px;
 }
 
@@ -979,7 +1209,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: var(--baseSetDarkAccentColor);
+  background-color: var(--winterRomanceDarkAccentColor);
   border-radius: 5px;
 }
 
@@ -988,7 +1218,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--baseSetDarkAccentColor);
+  background-color: var(--winterRomanceDarkAccentColor);
   border-radius: 50px;
 }
 
@@ -997,8 +1227,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 4px solid var(--baseSetDarkAccentColor);
-  border-bottom: 6px solid var(--baseSetDarkAccentColor);
+  border: 4px solid var(--winterRomanceDarkAccentColor);
+  border-bottom: 6px solid var(--winterRomanceDarkAccentColor);
   margin: 5px 4% 0 8px;
   border-radius: 5px;
   margin-bottom: 2px;
@@ -1007,7 +1237,7 @@
 /* Bottom Section */
 .bottomSection.winter_romance {
   display: grid;
-  background-color: var(--baseSetBackgroundColor);
+  background-color: var(--winterRomanceBackgroundColor);
   border-radius: 10px;
   grid-template-columns: 0.6fr 1.8fr 0.6fr;
   grid-template-rows: 1fr 1fr;
@@ -1024,28 +1254,40 @@
   grid-template-rows: 1fr;
   gap: 0px 3px;
   grid-auto-flow: row;
-  grid-template-areas: "iconCardDraw valueCardDraw";
+  grid-template-areas: " valueCardDraw iconCardDraw";
   grid-area: card-draw;
-  background-color: var(--baseSetLightAccentColor);
+  background-color: var(--winterRomanceLightAccentColor);
   border-radius: 50px;
   padding: 4px;
   margin: 2px;
 }
-.iconCardDraw {
+.iconCardDrawEnabled.winter_romance {
   grid-area: iconCardDraw;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--winterRomanceIconEnabled);
 }
-.iconCardDraw > svg {
-  width: 15px;
-  height: 15px;
+.iconCardDrawDisabled.winter_romance {
+  grid-area: iconCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--winterRomanceIconDisabled);
 }
-.valueCardDraw {
+.valueCardDrawHasValue.winter_romance {
   grid-area: valueCardDraw;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--winterRomanceIconEnabled);
+}
+.valueCardDrawIsZero.winter_romance {
+  grid-area: valueCardDraw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--winterRomanceIconDisabled);
 }
 
 /* Love */
@@ -1055,28 +1297,40 @@
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas: "iconLove valueLove";
+  grid-template-areas: " valueLove iconLove";
   grid-area: love;
-  background-color: var(--baseSetLightAccentColor);
+  background-color: var(--winterRomanceLightAccentColor);
   border-radius: 50px;
   padding: 4px;
   margin: 2px;
 }
-.iconLove {
+.iconLoveEnabled.winter_romance {
   grid-area: iconLove;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--winterRomanceIconEnabled);
 }
-.iconLove > svg {
-  width: 15px;
-  height: 15px;
+.iconLoveDisabled.winter_romance {
+  grid-area: iconLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--winterRomanceIconDisabled);
 }
-.valueLove {
+.valueLoveHasValue.winter_romance {
   grid-area: valueLove;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--winterRomanceIconEnabled);
+}
+.valueLoveIsZero.winter_romance {
+  grid-area: valueLove;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--winterRomanceIconDisabled);
 }
 
 /* Effects */
@@ -1096,28 +1350,39 @@
   grid-auto-flow: row;
   grid-template-areas: "iconServings valueServings";
   grid-area: servings;
-  background-color: var(--baseSetLightAccentColor);
+  background-color: var(--winterRomanceLightAccentColor);
   border-radius: 50px;
   padding: 4px;
   margin: 2px;
 }
-.iconServings {
+.iconServingsEnabled.winter_romance {
   grid-area: iconServings;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--winterRomanceIconEnabled);
 }
-.iconServings > svg {
-  width: 15px;
-  height: 15px;
+.iconServingsDisabled.winter_romance {
+  grid-area: iconServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--winterRomanceIconDisabled);
 }
-.valueServings {
+.valueServingsHasValue.winter_romance {
   grid-area: valueServings;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--winterRomanceIconEnabled);
 }
-
+.valueServingsIsZero.winter_romance {
+  grid-area: valueServings;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--winterRomanceIconDisabled);
+}
 /* Employs  */
 .employs.winter_romance {
   display: grid;
@@ -1127,24 +1392,36 @@
   grid-auto-flow: row;
   grid-template-areas: "iconEmploys valueEmploys";
   grid-area: employs;
-  background-color: var(--baseSetLightAccentColor);
+  background-color: var(--winterRomanceLightAccentColor);
   border-radius: 50px;
   padding: 4px;
   margin: 2px;
 }
-.iconEmploys {
+.iconEmploysEnabled.winter_romance {
   grid-area: iconEmploys;
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: var(--winterRomanceIconEnabled);
 }
-.iconEmploys > svg {
-  width: 15px;
-  height: 15px;
+.iconEmploysDisabled.winter_romance {
+  grid-area: iconEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--winterRomanceIconDisabled);
 }
-.valueEmploys {
+.valueEmploysHasValue.winter_romance {
   grid-area: valueEmploys;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--winterRomanceIconEnabled);
+}
+.valueEmploysIsZero.winter_romance {
+  grid-area: valueEmploys;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--winterRomanceIconDisabled);
 }

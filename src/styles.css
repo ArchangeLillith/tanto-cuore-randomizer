@@ -24,11 +24,11 @@
 }
 
 .finished-town {
-  padding: 2% 0 5% 0;
   align-content: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
+  height: 950px;
 }
 
 .options-box {
@@ -41,6 +41,39 @@
   flex-direction: column;
   width: 550px;
   margin: 10px 0px 10px 0px;
+}
+
+.right-fixed-box {
+  position: fixed;
+  right: 7px;
+  background-color: rgb(211, 115, 131);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.left-fixed-box {
+  position: fixed;
+  color: white;
+  left: 7px;
+  background-color: rgb(211, 115, 131);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.legend-set-box {
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+}
+
+.legend-set-title {
+  margin-left: 5px;
+}
+
+.legend-heart-icon {
+  height: 30px;
+  width: 30px;
+  align-items: center;
 }
 
 .warning-box {

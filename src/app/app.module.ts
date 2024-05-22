@@ -11,6 +11,8 @@ import { BoxWithDropdownComponent } from './components/box-with-dropdown/box-wit
 import { BoxWithMutexCheckboxesComponent } from './components/box-with-mutex-checkboxes/box-with-mutex-checkboxes.component';
 import { CardForTownComponent } from './components/card-for-town/card-for-town.component';
 import { CardGridComponent } from './components/card-grid/card-grid.component';
+import { SavedTownGridComponent } from './components/saved-town-grid/saved-town-grid.component';
+import { TownComponent } from './components/town/town.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { CardGridComponent } from './components/card-grid/card-grid.component';
     BoxWithMutexCheckboxesComponent,
     CardForTownComponent,
     CardGridComponent,
+    SavedTownGridComponent,
+    TownComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

@@ -1,9 +1,15 @@
 <div class="web-container">
   <!-- box of sets -->
+
   <div
     class="randomizer-page"
-    *ngIf="finishedTown.length < 10; else displayTown"
+    *ngIf="finishedTown.length < 10 && showTowns === false"
   >
+    <div>
+      Look at saved towns?<button (click)="showTownsToggle()">
+        Show me the towns!
+      </button>
+    </div>
     <app-box-with-checkbox
       (changeSet)="eventToggle($event)"
       [items]="setArray"
@@ -114,18 +120,112 @@
         </p>
       </div>
     </div>
-    <app-button (btnClick)="btnClick()"></app-button>
+    <app-button text="RANDOMIZE!" (btnClick)="btnClick()"></app-button>
   </div>
 </div>
 
-<ng-template #displayTown>
-  <div class="finished-town">
+<div *ngIf="showTowns === true">
+  <app-saved-town-grid [townList]="savedTownsList"></app-saved-town-grid>
+</div>
+
+<div
+  class="finished-town"
+  *ngIf="finishedTown.length >= 10 && showTowns === false"
+>
+  <div class="web-container">
     <div class="header-wrapper">
       <h2 class="finished-town-header">Your finished town:</h2>
     </div>
     <app-card-grid [finishedTown]="finishedTown"></app-card-grid>
+    <div class="right-fixed-box">
+      <div>
+        <input
+          type="text"
+          placeholder="Name..."
+          (input)="writeNameOfTown($event)"
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Description..."
+          (input)="writeDescriptionOfTown($event)"
+        />
+      </div>
+      <app-button (btnClick)="saveTown()" text="Save This Town~"></app-button>
+    </div>
+    <div class="left-fixed-box">
+      <h3>Legend:</h3>
+      <div class="legend-set-box">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          class="legend-heart-icon"
+        >
+          <path
+            fill="pink"
+            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+          />
+        </svg>
+        <div class="legend-set-title">Base Set</div>
+      </div>
+      <div class="legend-set-box">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          class="legend-heart-icon"
+        >
+          <path
+            fill="rgb(238, 173, 127)"
+            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+          />
+        </svg>
+        <div class="legend-set-title">Oktoberfest</div>
+      </div>
+      <div class="legend-set-box">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          class="legend-heart-icon"
+        >
+          <path
+            fill="rgb(249, 232, 153)"
+            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+          />
+        </svg>
+        <div class="legend-set-title">Expanding the House</div>
+      </div>
+      <div class="legend-set-box">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          class="legend-heart-icon"
+        >
+          <path
+            fill="rgb(194, 232, 246)"
+            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+          />
+        </svg>
+        <div class="legend-set-title">Romantic Vacation</div>
+      </div>
+      <div class="legend-set-box">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          class="legend-heart-icon"
+        >
+          <path
+            fill="rgb(138, 166, 236)"
+            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+          />
+        </svg>
+        <div class="legend-set-title">Winter Romance</div>
+      </div>
+
+      <div class="filter-wrapper"><h3>Filters</h3></div>
+    </div>
   </div>
-</ng-template>
+</div>
 
 <!-- 
 attack card box 

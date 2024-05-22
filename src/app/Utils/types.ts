@@ -48,3 +48,14 @@ export type Card = {
   cardID: number;
   set: string;
 };
+export type CardInTown = {
+  name: string;
+  set: string;
+};
+
+export type TownObject = {
+  name: string;
+  description: string;
+  cards: CardInTown[];
+  id: number;
+};

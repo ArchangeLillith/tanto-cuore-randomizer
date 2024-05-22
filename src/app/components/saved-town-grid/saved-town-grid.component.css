@@ -1,0 +1,17 @@
+.town-box {
+  border: 3px solid pink;
+  margin: auto;
+  margin-top: 5%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: fit-content;
+  padding: 20px 5px 20px 5px;
+  border-radius: 10px;
+  background: rgb(246, 129, 149);
+}
+
+.web-container {
+  height: 950px;
+}
