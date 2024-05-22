@@ -9,7 +9,7 @@
   <h3 align="center">Tanto Cuore Randomizer</h3>
 
   <p align="center">
-   The big sister of Tanto Cuore Funnel, randomizing cards to make towns for the card game Tanto Cuore
+   A randomizer for the card game <a href="https://www.japanimegames.com/tanto_cuore" target="_blank" style="text-decoration:none;">Tanto Cuore</a>
   </p>
 </div>
 
@@ -49,7 +49,7 @@
 This project allows the user to choose between many different filters and receive a town that adheres to those filters and can be played in a game of Tanto Cuore. 
 
 Here's how:
-* The user chooses which sets of the game to use and the application calls the external server to return all cards that match the set(s) chosen
+* The user chooses which sets of the game to use and the application assembles a list of cards from an internal storage that meet the set specifications
 * User input for optional rules and slants gets saved in a large "filterObject"
 * Cards are filtered based on the object and an array of "townMaterial" is returned
 * Ten cards are picked semi-randomly with Math.random() and returned to the user in the GUI for a finished town!
@@ -63,7 +63,6 @@ Here's how:
 
 * Angular
 * TypeScript
-* 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -78,11 +77,11 @@ Here's how:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This project only runs if a server of cards (from Tanto Cuore Funnel) is running on http://localhost:5000
+Head over to LINK to see how it works!
 
 ### Prerequisites
 
-A web browser, preferably Chrome, and the database from Tanto Cuore Funnel running on http://localhost:5000
+A web browser, preferably Chrome as that's what wsa used to develop and test this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -102,14 +101,3 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
