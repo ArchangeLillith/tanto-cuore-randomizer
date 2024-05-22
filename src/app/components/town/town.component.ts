@@ -6,6 +6,7 @@ import { CardInTown } from 'src/app/Utils/types';
   templateUrl: './town.component.html',
   styleUrls: ['./town.component.css'],
 })
+
 export class TownComponent {
   @Input() town: any;
   ngOnInit() {
@@ -18,7 +19,7 @@ export class TownComponent {
       }
       return 0;
     });
-    console.log(this.sortedTown);
+    console.log('Sorted town', this.sortedTown);
   }
   sortedTown: any = [];
 }

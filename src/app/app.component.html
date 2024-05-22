@@ -5,12 +5,6 @@
     class="randomizer-page"
     *ngIf="finishedTown.length < 10 && showTowns === false"
   >
-    <!-- REFACTOR for the saving functionality -->
-    <!-- <div>
-      Look at saved towns?<button (click)="showTownsToggle()">
-        Show me the towns!
-      </button>
-    </div> -->
     <app-box-with-checkbox
       (changeSet)="eventToggle($event)"
       [items]="setArray"

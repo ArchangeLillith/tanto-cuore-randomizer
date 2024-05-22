@@ -30,6 +30,7 @@ export class BoxWithMutexCheckboxesComponent {
   @ViewChild('bottomInput') bottomInput: ElementRef<HTMLInputElement>;
   @ViewChild('bottomInputText') bottomInputText: ElementRef<HTMLSpanElement>;
 
+  //This governs the look of the boxes by leveraging CSS
   onChange(event: any) {
     switch (event.target.id) {
       case this.topOptionId:

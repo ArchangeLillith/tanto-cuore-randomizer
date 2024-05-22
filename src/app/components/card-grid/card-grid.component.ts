@@ -13,6 +13,7 @@ export class CardGridComponent {
   @Input() finishedTown: Card[];
   @Output() genericMaidList: string[] = [];
 
+  //The list of random maid images to pull from randomly
   maidUrlList: string[] = [
     './assets/images/genericMaids/maid1.jpg',
     './assets/images/genericMaids/maid2.jpg',

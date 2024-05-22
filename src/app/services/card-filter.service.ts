@@ -1,34 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { FilterObject } from '../Utils/types';
 import { Card } from '../Utils/types';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-  }),
-};
 @Injectable({
   providedIn: 'root',
 })
 export class CardFilterService {
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
-  //Not needed because we don't need a server grab for this anymore
-  // returnSetCards(setRequested: Object): Observable<any> {
-  //   const url = `http://localhost:5000/${setRequested}`;
-  //   return this.http.get<any>(url, httpOptions);
-  // }
-
+  //A lightweight call to the filter that can be initated to show dynamic UI when a town doesn't have ten cards
   filterCheck(cardsPerSet: Card[], filterObject: FilterObject) {
     const cardsThatMatchFilters = this.filterCards(cardsPerSet, filterObject);
     return cardsThatMatchFilters;
   }
-
+  //The filter method to handle the fine grain filtering, calling other funtions to fully filter the array to the users specification
   filterCards(cardArray: Card[], filterObject: FilterObject) {
     const chosenMaidChiefs: Card[] = this.chooseChambermaidChiefs(cardArray);
     const cardsToCut: Card[] = [];
+    //Passes in the card to the filter method and expects a card or undefined as a return. If a card is returned, it gets added to the cards to cut array and then removed subsequently
     for (let i = 0; i < cardArray.length; i++) {
       const cardToCut = filterByCardProperty(cardArray[i], filterObject);
       if (cardToCut) cardsToCut.push(cardToCut);
@@ -41,6 +30,7 @@ export class CardFilterService {
     return cardArray;
   }
 
+  //The method to choose the chiefs from the sets the user has selected
   chooseChambermaidChiefs(cardArray: Card[]) {
     const maidChiefs: Card[] = [];
     for (let i = 0; i < cardArray.length; i++) {
@@ -64,6 +54,7 @@ export class CardFilterService {
   }
 }
 
+//The fine grain, by the selection filtering of the array. A card is passed in and has to pass all the checks. If undefined is returned, the card does not need to be cut, but if the card is returned it's added to a list of cards to be removed which is handled at a higher level
 function filterByCardProperty(
   card: Card,
   filterObject: FilterObject
