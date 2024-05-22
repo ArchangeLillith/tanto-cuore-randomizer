@@ -135,34 +135,13 @@
 }
 
 /* Set the icon sizes */
-.iconLoveEnabled > svg {
-  width: 15px;
-  height: 15px;
-}
-.iconCardDrawEnabled > svg {
-  width: 15px;
-  height: 15px;
-}
-.iconServingsEnabled > svg {
-  width: 15px;
-  height: 15px;
-}
-.iconEmploysEnabled > svg {
-  width: 15px;
-  height: 15px;
-}
-.iconLoveDisabled > svg {
-  width: 15px;
-  height: 15px;
-}
-.iconCardDrawDisabled > svg {
-  width: 15px;
-  height: 15px;
-}
-.iconServingsDisabled > svg {
-  width: 15px;
-  height: 15px;
-}
+.iconLoveEnabled > svg,
+.iconCardDrawEnabled > svg,
+.iconServingsEnabled > svg,
+.iconEmploysEnabled > svg,
+.iconLoveDisabled > svg,
+.iconCardDrawDisabled > svg,
+.iconServingsDisabled > svg,
 .iconEmploysDisabled > svg {
   width: 15px;
   height: 15px;
