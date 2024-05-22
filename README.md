@@ -75,7 +75,7 @@ Here's how:
 
 </div>
 <!-- GETTING STARTED -->
-## Getting Started
+### Getting Started
 
 Head over to LINK to see how it works!
 
