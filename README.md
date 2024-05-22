@@ -57,7 +57,9 @@ Here's how:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Getting Started
 
+Head over to LINK to see how it works!
 
 ### Built With
 
@@ -74,10 +76,7 @@ Here's how:
 ![Finished-Town](https://github.com/ArchangeLillith/tanto-cuore-randomizer/blob/master/Finished-Town.png)
 
 </div>
-<!-- GETTING STARTED -->
-### Getting Started
 
-Head over to LINK to see how it works!
 
 ### Prerequisites
 
