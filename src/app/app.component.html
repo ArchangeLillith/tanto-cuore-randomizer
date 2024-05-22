@@ -5,11 +5,12 @@
     class="randomizer-page"
     *ngIf="finishedTown.length < 10 && showTowns === false"
   >
-    <div>
+    <!-- REFACTOR for the saving functionality -->
+    <!-- <div>
       Look at saved towns?<button (click)="showTownsToggle()">
         Show me the towns!
       </button>
-    </div>
+    </div> -->
     <app-box-with-checkbox
       (changeSet)="eventToggle($event)"
       [items]="setArray"
@@ -137,7 +138,8 @@
       <h2 class="finished-town-header">Your finished town:</h2>
     </div>
     <app-card-grid [finishedTown]="finishedTown"></app-card-grid>
-    <div class="right-fixed-box">
+    <!-- REFACTOR for the saving of towns -->
+    <!-- <div class="right-fixed-box">
       <div>
         <input
           type="text"
@@ -153,7 +155,7 @@
         />
       </div>
       <app-button (btnClick)="saveTown()" text="Save This Town~"></app-button>
-    </div>
+    </div> -->
     <div class="left-fixed-box">
       <h3>Legend:</h3>
       <div class="legend-set-box">

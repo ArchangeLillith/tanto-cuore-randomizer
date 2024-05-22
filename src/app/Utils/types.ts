@@ -59,3 +59,37 @@ export type TownObject = {
   cards: CardInTown[];
   id: number;
 };
+
+export type DatabaseObject = {
+  base_set: DatabaseCard[];
+  expanding_the_house: DatabaseCard[];
+  oktoberfest: DatabaseCard[];
+  winter_romance: DatabaseCard[];
+  romantic_vacation: DatabaseCard[];
+};
+
+type DatabaseCard = {
+  name: string;
+  cardTitle: string;
+  pictureUrl: string;
+  promo: boolean;
+  employEffect: boolean;
+  chiefMaid: boolean;
+  beerMaid: boolean;
+  eventRequired: boolean;
+  couplesRequired: boolean;
+  reminescenceRequired: boolean;
+  chamberMaid: boolean;
+  crescentSister: boolean;
+  stackingVP: boolean;
+  victoryPoints: number;
+  negativeVP: boolean;
+  purchasePrice: number;
+  cardDraw: number;
+  employs: number;
+  servings: number;
+  love: number;
+  cardID: number;
+  set: string;
+  id: number;
+};

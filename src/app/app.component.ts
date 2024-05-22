@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FilterObject, Card, TownObject } from './Utils/types';
 import { CardFilterService } from './services/card-filter.service';
 import { TownService } from './services/town.service';
+import { DatabaseObject } from './Utils/types';
+import database from '../db.json';
 import createTheTown from './Utils/createTheTown';
 
 @Component({
@@ -40,9 +42,10 @@ export class AppComponent {
       highEmployEffects: false,
       lowEmployEffects: false,
     };
-    this.TownService.returnSavedTownList().subscribe((townsReturned) => {
-      this.savedTownsList = this.savedTownsList.concat(townsReturned);
-    });
+    // REFACTOR for saved towns
+    // this.TownService.returnSavedTownList().subscribe((townsReturned) => {
+    //   this.savedTownsList = this.savedTownsList.concat(townsReturned);
+    // });
   }
 
   cardsPerSet: Card[] = [];
@@ -80,16 +83,18 @@ export class AppComponent {
     const setIndex: number = this.filterObject.setList.indexOf(setName);
     if (setIndex !== -1) {
       this.filterObject.setList.splice(setIndex, 1);
-      this.cardsPerSet = this.cardsPerSet.filter(function (setName) {
-        setName !== setName;
+      this.cardsPerSet = this.cardsPerSet.filter(function (card) {
+        //if true the card will stay
+        return card.set !== setName;
       });
     } else {
       this.filterObject.setList.push(setName);
-      this.CardFilterService.returnSetCards(setName).subscribe((cardReturn) => {
-        this.cardsPerSet = this.cardsPerSet.concat(cardReturn);
-        this.callFilterCheck();
-      });
+      this.cardsPerSet = this.cardsPerSet.concat(
+        (database as DatabaseObject)[setName as keyof DatabaseObject]
+      );
+      this.callFilterCheck();
     }
+    console.log(this.cardsPerSet);
   }
 
   dropdownChange(event: any) {
@@ -196,22 +201,22 @@ export class AppComponent {
     this.showTowns = true;
     console.log(`town toggle hit`);
   }
-
-  saveTown() {
-    if (
-      this.finishedTown.length < 10 ||
-      this.townDescription === '' ||
-      this.townName === ''
-    ) {
-      alert('Please enter values into the name and description of the town!');
-      return;
-    }
-    this.TownService.saveTown(
-      this.finishedTown,
-      this.townDescription,
-      this.townName
-    );
-  }
+  //REFACTOR for saved towns
+  // saveTown() {
+  //   if (
+  //     this.finishedTown.length < 10 ||
+  //     this.townDescription === '' ||
+  //     this.townName === ''
+  //   ) {
+  //     alert('Please enter values into the name and description of the town!');
+  //     return;
+  //   }
+  //   this.TownService.saveTown(
+  //     this.finishedTown,
+  //     this.townDescription,
+  //     this.townName
+  //   );
+  // }
   btnClick() {
     const townMaterial = this.CardFilterService.filterCheck(
       this.cardsPerSet,
@@ -233,7 +238,6 @@ export class AppComponent {
     'Romantic Vacation',
     'Oktoberfest',
     'Winter Romance',
-    'Promotional',
   ];
   eventString: string[] = [
     'Exclude all cards that affect or require Event cards',

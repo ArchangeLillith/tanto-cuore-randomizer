@@ -15,10 +15,11 @@ const httpOptions = {
 export class CardFilterService {
   constructor(private http: HttpClient) {}
 
-  returnSetCards(setRequested: Object): Observable<any> {
-    const url = `http://localhost:5000/${setRequested}`;
-    return this.http.get<any>(url, httpOptions);
-  }
+  //Not needed because we don't need a server grab for this anymore
+  // returnSetCards(setRequested: Object): Observable<any> {
+  //   const url = `http://localhost:5000/${setRequested}`;
+  //   return this.http.get<any>(url, httpOptions);
+  // }
 
   filterCheck(cardsPerSet: Card[], filterObject: FilterObject) {
     const cardsThatMatchFilters = this.filterCards(cardsPerSet, filterObject);
